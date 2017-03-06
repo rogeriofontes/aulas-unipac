@@ -8,25 +8,19 @@
 [Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Dispositivos Móveis
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Analise de Sistemas I
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Analise de Sistemas II
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Programação Orientada a Objetos I
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Programação Orientada a Objetos II
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Segurança da Informação
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
