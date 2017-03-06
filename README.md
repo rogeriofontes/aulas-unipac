@@ -5,8 +5,7 @@
 ### Cadeiras:
 
 #### Redes de Computadores
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)
 
 #### Dispositivos Móveis
 http://github.com - automatic!
