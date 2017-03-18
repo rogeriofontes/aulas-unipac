@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
 
 title: Aulas Unipac
-description: Aulas Ministradas na Unipac pelo Prof. Rogério Fontes\n\nSobre o Professor:\n\nos
+description: Aulas Ministradas na Unipac pelo Prof. Rogério Fontes<br />Sobre o Professor:<br />nos
 # Your name, as you want it to appear underneath each post and in the footer
 author: Prof. Rogério Fontes
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
@@ -13,5 +13,5 @@ author:
   bio    : "My awesome biography constrained to a sentence or two goes here."
   email  : # optional
   uri    : "http://your-site.com"
-  
+
 show_downloads: true
