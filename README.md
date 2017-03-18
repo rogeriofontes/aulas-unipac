@@ -1,4 +1,4 @@
-# Aulas Ministradas  na Unipac
+# Aulas Ministradas na Unipac
 
 ## Prof. Rogério Fontes - @rogeriofontes
 
