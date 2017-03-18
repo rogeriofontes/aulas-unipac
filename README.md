@@ -1,8 +1,5 @@
-# Aulas Ministradas na Unipac
-
+# Cadeiras Ministradas na Unipac
 ## Prof. Rogério Fontes - @rogeriofontes
-
-### Cadeiras Ministradas:
 
 #### Redes de Computadores
 [Vá para o Conteúdo](https://rogeriofontes.github.io/aulas-unipac/redes)

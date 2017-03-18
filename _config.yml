@@ -1,14 +1,14 @@
 theme: jekyll-theme-minimal
 
-title: Aulas Unipac
-description: > # this means to ignore newlines until "baseurl:"
-  Aulas Ministradas na Unipac pelo Prof. Rogério Fontes
-
 author:
   name   : "Prof. Rogério Fontes"
   avatar : "https://avatars0.githubusercontent.com/u/1079023?v=3&s=400"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   email  : rogerio.fontes@rogeriofontes.inf.br
   uri    : "http://rogeriofontes.inf.br"
+  
+title: Aulas Unipac
+description: > # this means to ignore newlines until "baseurl:"
+  Aulas Ministradas na Unipac pelo Prof. Rogério Fontes
 
 show_downloads: true
