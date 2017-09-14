@@ -1,0 +1,652 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Redes de Computadores - Linux</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Redes de Computadores</h3>
+				<h5>Overview Linux</h5>
+				<br />
+				<h5>Aulas do curso de Redes de Computadores</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>Linux</h3>
+				<p>Linux é, um sistema operacional. Ou seja, um software de computador que habilita as aplicações e o operador do computador acessar os dispositivos no computador e desempenhar funções desejadas.</p>
+			</section>
+			<section>
+				<section>
+					<h3>Kernel Linux</h3>
+					<p>Kernel é uma palavra inglesa que significa "núcleo". Em Informática, o núcleo é a parte principal do sistema operacional do computador. A função do núcleo do sistema é conectar o software ao hardware, estabelecendo uma comunicação eficaz entre os
+						recursos do sistema.
+				</section>
+				<section>
+					<h3>Tipos de Kernel</h3>
+					<p>A arquitetura do núcleo de um sistema pode ser monolítico, híbrido ou micronúcleo.</p>
+				</section>
+				<section>
+					<h3>Tipos de Kernel: Monolítico</h3>
+					<p>Os controladores de dispositivos e as extensões de núcleo são executadas no espaço de núcleo, com acesso completo ao hardware.</p>
+				</section>
+				<section>
+					<h3>Tipos de Kernel: Híbrido</h3>
+					<p>é essencialmente um micronúcleo e tem um código ("não essencial") no espaço do núcleo para que as operações executadas sejam mais rápidas.</p>
+				</section>
+				<section>
+					<h3>Tipos de Kernel: Micronúcleo</h3>
+					<p>alguns processos são executados no núcleo e os restantes são executados no espaço do usuário.</p>
+				</section>
+				<section>
+					<h3>Tipos de Kernel: Linux</h3>
+					<p>O Linux é um software livre e portável, com a vantagem de funcionar em dezenas de plataformas, desde os supercomputadores IBM aos dispositivos móveis, smartphones ou iPod. O sistema operacional Linux possui um núcleo monolítico.</p>
+				</section>
+			</section>
+			<section>
+				<h3>Esturura do linux</h3>
+				<img width="800" height="500" data-src="img/kernel-linux.gif" alt="Down arrow">
+			</section>
+			<section>
+				<section>
+					<h3>Esturura de diretório do linux</h3>
+					<img width="800" height="500" data-src="img/estrutura-diretorios.png" alt="Down arrow">
+				</section>
+				<section>
+					<h3>/ (diretório raiz)</h3>
+					<p> Pai de todos. :)</p>
+				</section>
+				<section>
+					<h3>/bin</h3>
+					<p>(diferente do /sbin, este diretório contém vários comandos úteis utilizados tanto para o administrador do sistema quanto para o usuário comum, contem geralmente os shells, e os programas mais comuns);</p>
+				</section>
+				<section>
+					<h3>/boot</h3>
+					<p>(diretório onde ficam os arquivo essenciais para o boot do GNU/Linux, fica também os novos kernels recompilados e reinstalados.)</p>
+				</section>
+				<section>
+					<h3>/dev</h3>
+					<p>(diretorio onde ficam armazenados arquivos especiais ou arquivos de dispositivos, o GNU/Linux entende todos os dispositivos como arquivos, tanto o seu dispositivo usb quanto sua placa de som estão aqui.)</p>
+				</section>
+				<section>
+					<h3>/etc</h3>
+					<p>(diretório com os arquivos de configuração de programas, serviços ou do próprio Linux, é este o diretório em que devem ser procurados os arquivos de configuração)</p>
+				</section>
+				<section>
+					<h3>/home</h3>
+					<p>(diretórios local (home) de usuários. Onde ficam os arquivos dos usuários. Pode ser representado por um til (~), são acessíveis por /home/Nomedousuario)</p>
+				</section>
+				<section>
+					<h3>/lib</h3>
+					<p>(diretório onde são encontradas as bibliotecas compartilhadas de aplicativos e módulos do kernel)</p>
+				</section>
+				<section>
+					<h3>/lost+found</h3>
+					<p>(em sistemas de arquivos com a capacidade de journaling este diretório armazena os dados recuperados pelo fsck)</p>
+				</section>
+				<section>
+					<h3>/mnt</h3>
+					<p>(diretório temporário que serve de ponto de montagem para dispositivos de armazenamento, tornando os acessíveis)</p>
+				</section>
+				<section>
+					<h3>/opt</h3>
+					<p>(diretório reservado para todos os softwares que não fazem parte da instalação padrão, programas desenvolvidos por terceiros.)</p>
+				</section>
+				<section>
+					<h3>/proc</h3>
+					<p>(diretório com sistema de arquivos virtual do kernel que demonstra status de programas ou então informações sobre o hardware, e até mesmo a alteração do status de hardware, não contém arquivos reais)</p>
+				</section>
+				<section>
+					<h3>/root</h3>
+					<p>(diretório home do usuário root)</p>
+				</section>
+				<section>
+					<h3>/sbin</h3>
+					<p>(diretório com arquivos executáveis de manutenção do sistema e de tarefas administrativas)</p>
+				</section>
+				<section>
+					<h3>/tmp</h3>
+					<p>(diretório com arquivos temporários)</p>
+				</section>
+				<section>
+					<h3>/usr</h3>
+					<p>(contém uma outra árvore de diretórios compartilhada entre os usuários, bibliotecas, aplicativos, documentação e etc.)</p>
+				</section>
+				<section>
+					<h3>/var</h3>
+					<p>(contém dados variáveis como logs de arquivos e spools de impressoras)</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Principais comandos</h3>
+					<p> Estes comandos não visam ser um compêndio completo de operação, haja vista que se possui mais comandos que esses aqui que serão listados, logo os comandos são:</p>
+				</section>
+				<section>
+					<h3> 1. ls (lista o conteúdo de um diretório)</h3>
+					<p> Exemplo: $ ls</p>
+				</section>
+				<section>
+					<h3> 2. ls -a (lista os diretórios, arquivos oculto e executáveis)</h3>
+					<p> Exemplo: $ ls -a</p>
+				</section>
+				<section>
+					<h3> 3. ls -l (Lista o conteúdo de um diretório detalhadamente)</h3>
+					<p> Exemplo: $ ls -l</p>
+				</section>
+				<section>
+					<h3> 4. pwd (mostra o diretório corrente)</h3>
+					<p> Exemplo: $ pwd</p>
+				</section>
+				<section>
+					<h3> 5. cd (muda de diretório)</h3>
+					<p> Exemplo: $ cd /etc</p>
+				</section>
+				<section>
+					<h3> 6. cd - (volta para o diretório anterior)</h3>
+					<p> Exemplo: $ cd -</p>
+				</section>
+				<section>
+					<h3> 7. cd .. (volta um diretório acima)</h3>
+					<p> Exemplo: $ cd ..</p>
+				</section>
+				<section>
+					<h3> 8. cd ~ (volta para seu diretório /home)</h3>
+					<p> Exemplo: $ cd ~</p>
+				</section>
+				<section>
+					<h3> 9. mkdir [pasta] (cria uma pasta com o nome desejado)</h3>
+					<p> Exemplo: $ mkdir programas</p>
+				</section>
+				<section>
+					<h3> 10. mkdir [pasta1] [pasta2] (cria pasta1 e pasta dois ao mesmo tempo)</h3>
+					<p> Exemplo: $ mkdir teste1 teste2</p>
+				</section>
+				<section>
+					<h3>1. mkdir -p [pasta]/[sub-pasta] (cria um diretório e um sub-diretório)</h3>
+					<p>Exemplo: $ mkdir -p teste3/teste3_1</p>
+				</section>
+				<section>
+					<h3>12. rm -r [pasta/arquivo] (deleta uma pasta ou arquivo)</h3>
+					<p>
+						Exemplo: $ rm -r teste3</p>
+				</section>
+				<section>
+					<h3>13. mv [arquivo1] [arquivo2] (renomeia uma pasta)</h3>
+					<p>
+						Exemplo: $ mv teste teste2</p>
+				</section>
+				<section>
+					<h3>14. mv [arquivo] [caminho] (move o arquivo para um determinado caminho)</h3>
+					<p>
+						Exemplo: $ mv imagem. jpg ~/t4k_slack/Wallpaper</p>
+				</section>
+				<section>
+					<h3>15. cp [arquivo] [caminho] (copia um arquivo para um determinado caminho)</h3>
+					<p>
+						Exemplo: $ cp imagem.jpg ~/t4k_slack/Wallpapers</p>
+				</section>
+				<section>
+					<h3>16. ln -s [caminho] [link] (cria um link)</h3>
+					<p>
+						Exemplo: $ ln -s /usr/bin/limewire limewire</p>
+				</section>
+				<section>
+					<h3>17. type [executável] (busca o caminho de um executável)</h3>
+					<p>
+						Exemplo: $ type limewire</p>
+				</section>
+				<section>
+					<h3>18. cat > [arquivo] (cria novo arquivo)</h3>
+					<p>
+						Exemplo: $ cat > teste.txt</p>
+				</section>
+				<section>
+					<h3>19. cat [arquivo1] >> [arquivo2] (acrescenta arq.2 em arq.1)</h3>
+					<p>
+						Exemplo: $ cat teste1 >> teste2</p>
+				</section>
+				<section>
+					<h3>20. touch [arquivo] (cria um arquivo)</h3>
+					<p>
+						Exemplo: $ touch teste</p>
+				</section>
+				<section>
+					<h3>21. diff [arquivo1] [arquivo2] (compara os dois arquivos)</h3>
+					<p>
+						Exemplo: $ diff teste1 teste2</p>
+				</section>
+				<section>
+					<h3>22. locate [arquivo] (localiza o arquivo desejado]</h3>
+					<p>
+						Exemplo:$ locate JimiHendrix. jpg
+					</p>
+				</section>
+				<section>
+					<h3>23. head [-linhas] [arquivo] (mostra as primeiras linhas de um arquivo)</h3>
+					<p>
+						Exemplo:$ head -10 texto.txt</p>
+				</section>
+				<section>
+					<h3>23.tail [-linhas] [arquivo] (faz exatamente o contrário do comando anterior)</h3>
+					<p>
+						Exemplo:$ tail -20 texto.txt</p>
+				</section>
+				<section>
+					<h3>24. less [arquivo] (mostra o conteúdo de um diretório)</h3>
+					<p>
+						Exemplo:$ less texto.txt</p>
+				</section>
+				<section>
+					<h3>25. more [arquivo] (mostra o conteúdo de um arquivo)</h3>
+					<p>
+						Exemplo:$ more texto.txt</p>
+				</section>
+				<section>
+					<h3>26. nl [arquivo] (mostra quantas linhas tem no arquivo)</h3>
+					<p>
+						Exemplo:$ nl texto.txt</p>
+				</section>
+				<section>
+					<h3>27. wc [arquivo] (lista número de linhas, palavras e bytes de um arquivo)</h3>
+					<p>
+						Exemplo:$ wc texto.txt
+					</p>
+				</section>
+				<section>
+					<h3>28. [comando1] | [comando2] (conecta dois processos)</h3>
+					<p>
+						Exemplo:$ vi /etc/X11/xorg.conf | more</p>
+				</section>
+				<section>
+					<h3>29. sleep [tempo] && [comando] (executa um comando em um determinado tempo)</h3>
+					<p>
+						Exemplo:$ sleep 2 && pwd
+					</p>
+				</section>
+				<section>
+					<h3>30. echo [mensagem] (exibe uma mensagem em seu shell)</h3>
+					<p>
+						Exemplo:$ echo Olá Big Linux
+					</p>
+				</section>
+				<section>
+					<h3>31. alias [comando/atual] [comando_novo] (muda o nome de um comando)</h3>
+					<p>
+						Exemplo:$ alias dir=ls -l
+					</p>
+				</section>
+				<section>
+					<h3>32. history (lista os últimos 500 comandos que você digitou)
+Exemplo:$ history</p></h3>
+					<p>
+				</section>
+				<section>
+					<h3>33. su (muda para o super usuário root, precisa da senha)</h3>
+					<p>
+						Exemplo:$ su, no Big Linux para ter acesso como administrador sem digitar su, digite "sudo su" sem aspas.</p>
+				</section>
+				<section>
+					<h3>34. su [usuário] (muda para outro usuário, também necessita da senha)</h3>
+					<p>
+						Exemplo:$ su fulano</p>
+				</section>
+				<section>
+					<h3>35. shutdown (reinicia o sistema)</h3>
+					<p>
+						Exemplo:$ shutdown</p>
+				</section>
+				<section>
+					<h3>36. reboot (reinicia a máquina com emergência)</h3>
+					<p>
+						Exemplo:$ reboot</p>
+				</section>
+				<section>
+					<h3>37. passwd (troca sua senha)</h3>
+					<p>
+						Exemplo:$ passwd</p>
+				</section>
+				<section>
+					<h3>38. uname (mostra o sistema operacional)</h3>
+					<p>
+						Exemplo:$ uname</p>
+				</section>
+				<section>
+					<h3>39. uname -a (mostra o sistema operacional, nome da máquina, versão do kernel e etc)</h3>
+					<p>
+						Exemplo: $ uname -a</p>
+				</section>
+				<section>
+					<h3>40. dmesg (mostra informações do sistema)</h3>
+					<p>
+						Exemplo: $ dmesg</p>
+				</section>
+				<section>
+					<h3>41. top -d [segundos] (informações detalhadas dos processos)</h3>
+					<p>
+						Exemplo: $ top -d 3</p>
+				</section>
+				<section>
+					<h3>42. ps (mostra os processos corrente "PID")</h3>
+					<p>
+						Exemplo: $ ps</p>
+				</section>
+				<section>
+					<h3>43. killall [programa] (força o término de um programa)</h3>
+					<p>
+						Exemplo: $ killall xmms</p>
+				</section>
+				<section>
+					<h3>44. xkill (transforma o ponteiro do mouse em um assassino de programa)</h3>
+					<p>
+						Exemplo:$ xkill</p>
+				</section>
+				<section>
+					<h3>45. mkfs.ext2 (formata um disquete em formato Linux)</h3>
+					<p>
+						Exemplo: $ mkfs.ext2 /dev/fd0</p>
+				</section>
+				<section>
+					<h3>46. superformat (formata um disquete em formato DOS)</h3>
+					<p>
+						Exemplo: $ superformat /dev/fd0</p>
+				</section>
+				<section>
+					<h3>47. vmstat [-tempo] (mostra a memória swap em uso)</h3>
+					<p>
+						Exemplo: $ vmstat -2</p>
+				</section>
+				<section>
+					<h3>48. arch (mostra a arquitetura do seu PC)</h3>
+					<p>
+						Exemplo: $ arch</p>
+				</section>
+				<section>
+					<h3>49. lsmod (lista os módulos da sua máquina)</h3>
+					<p>
+						Exemplo: $ lsmod</p>
+				</section>
+				<section>
+					<h3>50. insmod [módulo] (levanta um módulo forçadamente, requer root)</h3>
+					<p>
+						Exemplo: # insmod spca5x</p>
+				</section>
+				<section>
+					<h3>51. adduser (adiciona um usuário no sistema, requer root)</h3>
+					<p>
+						Exemplo:# adduser</p>
+				</section>
+				<section>
+					<h3>52. userdel [usuário] (deleta um usuário, requer root)</h3>
+					<p>
+						Exemplo: # userdel fulano</p>
+				</section>
+				<section>
+					<h3>53. userdel -r [usuário] (deleta o usuário e sua pasta que se encontra no diretório /home,
+requer root)</h3>
+					<p>
+						Exemplo: # userdel -r fulano</p>
+				</section>
+				<section>
+					<h3>54. chfn [usuário] (muda informações de um usuário, requer root)</h3>
+					<p>
+						Exemplo: # chfn fulano</p>
+				</section>
+				<section>
+					<h3>55. chage -M [dias] [usuário] (expira um usuário, no dia pré-determinado, requer root)</h3>
+					<p>
+						Exemplo: # chage -M 20 fulano</p>
+				</section>
+				<section>
+					<h3>56. display [imagem.jpg] (mostra uma imagem no X, necessita do ImageMagick)</h3>
+					<p>
+						Exemplo: $ display imagem. jpg</p>
+				</section>
+				<section>
+					<h3>57. convert [imagem.png] [imagem.jpg] (converte o formato .png para . jpg, necessita
+também do ImageMagick)</h3>
+					<p>
+						Exemplo: $ convert imagem.png imagem.jpg</p>
+				</section>
+				<section>
+					<h3>58. chmod (altera permissões)</h3>
+					<p>
+						Exemplo: # chmod 666 /dev/hdd</p>
+				</section>
+				<section>
+					<h3>59. mount [device] (monta um dispositivo)</h3>
+					<p>
+						Exemplo: $ mount /mnt/cdrom</p>
+				</section>
+				<section>
+					<h3>60. umount [device] (desmonta um dispositivo)</h3>
+					<p>
+						Exemplo: $ umount /mnt/cdrom</p>
+				</section>
+				<section>
+					<h3>61. eject (abre a gaveta do cd-rom)</h3>
+					<p>
+						Exemplo: $ eject /mnt/cdrom</p>
+				</section>
+				<section>
+					<h3>62. eject -t (fecha a gaveta do cdrom)</h3>
+					<p>
+						Exemplo: $ eject -t /mnt/cdrom</p>
+				</section>
+				<section>
+					<h3>63. halt (desliga o PC)</h3>
+					<p>
+						Exemplo: $ halt</p>
+				</section>
+				<section>
+					<h3>64. date (informa o dia e a hora)</h3>
+					<p>
+						Exemplo: $ date</p>
+				</section>
+				<section>
+					<h3>65. hostname (informa o nome da máquina)</h3>
+					<p>
+						Exemplo: $ hostname</p>
+				</section>
+				<section>
+					<h3>66. du [diretório] (fornece o tamanho de um diretório)</h3>
+					<p>
+						Exemplo: $ du pasta</p>
+				</section>
+				<section>
+					<h3>67. du -S [sub-diretórios] (fornece o tamanho do sub-diretório)</h3>
+					<p>
+						Exemplo: $ du -S sub_pasta</p>
+				</section>
+				<section>
+					<h3>68. [comando] & (inicia um processo em segundo plano e deixa o terminal livre para
+trabalhar)</h3>
+					<p>
+						Exemplo: $ gkrellm &</p>
+				</section>
+				<section>
+					<h3>69. cal (mostra um calendário do mês atual)</h3>
+					<p>
+						Exemplo: $ cal</p>
+				</section>
+				<section>
+					<h3>70. cal [ano] (mostra os 12 meses de um determinado ano)</h3>
+					<p>
+						Exemplo: $ cal 2005</p>
+				</section>
+				<section>
+					<h3>71. last [-quantidade] (mostra informações sobre os últimos logins, onde em quantidade
+você indica o número de logins)</h3>
+					<p>
+						Exemplo: $ last -10</p>
+				</section>
+				<section>
+					<h3>72. tar -zxvf[arquivo.tar.gz] (descompacta um arquivo em formato .tar.gz)</h3>
+					<p>
+						Exemplo: $ tar -zxvf amsn-0.94.tar.gz</p>
+				</section>
+				<section>
+					<h3>73. tar -jxvf [arquivo .tar.bz2] (descompacta um arquivo no formato .tar.bz2)</h3>
+					<p>
+						Exemplo: $ tar -jxvf gkrellm-0.12.tar.bz2</p>
+				</section>
+				<section>
+					<h3>74. clear (limpa a tela do shell)</h3>
+					<p>
+						Exemplo: $ clear</p>
+				</section>
+				<section>
+					<h3>75. free (mostra detalhes sobre a memória RAM)</h3>
+					<p>
+						Exemplo: $ free</p>
+				</section>
+				<section>
+					<h3>76. time [comando] (mede o tempo gasto para abrir um programa)</h3>
+					<p>
+						Exemplo: $ time amsn</p>
+				</section>
+				<section>
+					<h3>77. uptime (mostra o tempo desde do último boot)</h3>
+					<p>
+						Exemplo: $ uptime</p>
+				</section>
+				<section>
+					<h3>78. lsattr [arquivo/diretório] (lista atributos de um arquivo ou diretório)</h3>
+					<p>
+						Exemplo: $ lsattr arquivo</p>
+				</section>
+				<section>
+					<h3>79. whereis [executável/comando] (localiza o caminho de um executável/comando)</h3>
+					<p>
+						Exemplo: $ whereis amsn</p>
+				</section>
+				<section>
+					<h3>80. who (mostra quem está conectado ao sistema nesse momento)</h3>
+					<p>
+						Exemplo: $ who</p>
+				</section>
+				<section>
+					<h3>81. wget -c [URL] (faz download de arquivo na internet)</h3>
+					<p>
+						Exemplo: $ wget -c http://www.lugar.do.download/</p>
+				</section>
+				<section>
+					<h3>82. whoami (mostra quem se logou primeiro no sistema)</h3>
+					<p>
+						Exemplo: $ whoami</p>
+				</section>
+				<section>
+					<h3>83. lspci(lista os componentes PCI do seu computador)</h3>
+					<p>
+						Exemplo: $ lspci</p>
+				</section>
+				<section>
+					<h3>84. init 6 (faz reiniciar o computador mais rápido)</h3>
+					<p>
+						Exemplo: $ init 6</p>
+				</section>
+				<section>
+					<h3>85. init 0(faz desligar o computador mais rápido)</h3>
+					<p>
+						Exemplo: $ init 0</p>
+				</section>
+				<section>
+					<h3>86. startx (inicia a interface gráfica padrão do sistema)</h3>
+					<p>
+						Exemplo: $ startx</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3> Dicas: </h3>
+					<p>
+						1) Para listar todos os comandos disponiveis num terminal basta apertar TAB duas vezes, o terminal vai pergunta se você quer ver todos os comandos. Display all 3466 possibilities? (y or n) Então basta aperta y ( yes-sim ) e todos os comandos serão listados,
+						se apertar n ( no-não ) sera cancelado a listagem. o numero de "possibilities" pode variar.</p>
+				</section>
+				<section>
+					<h3> Dicas: </h3>
+					<p>2) Para saber mais sobre o comando basta adicionar --help na frente exemplo: wget --help lspci --help obs: geralmente os helps são em ingles.</p>
+				</section>
+				<section>
+					<h3> Dicas: </h3>
+					<p>3) O terminal tem sensibilidade com maiúsculas e minúsculas, tudo tem que ser digitado da maneira exata de como é escrito.</p>
+				</section>
+			</section>
+			<section>
+				<h3>Distribuições Linux</h3>
+				<p>http://ninjadolinux.com.br/distribuicoes-linux/</p>
+			</section>
+			<section>
+				<section>
+					<h3>Historia do Linux</h3>
+					<p><a href="http://ninjadolinux.com.br/historia-do-linux/">Ver história</a></p>
+				</section>
+				<section>
+					<h3>Filmes para assistir</h3>
+					<br />
+					<ul style="list-style: none;">
+						<li><small>RevolutionOS - (<a href="https://www.youtube.com/watch?v=jw8K460vx1c">Ver video</a>)</small></li>
+						<li><small>The Code: Story of Linux documentary (MULTiSUB) - (<a href="https://www.youtube.com/watch?v=XMm0HsmOTFI">Ver video</a>)</small></li>
+						<li><small>linux history short documentary - (<a href="https://www.youtube.com/watch?v=aurDHyL7bTA">Ver video</a>)</small></li>
+						<li><small>Linux History: 24 Years Step by Step - (<a href="https://www.youtube.com/watch?v=84cHeoEebJM">Ver video</a>)</small></li>
+						<li><small>The mind behind Linux | Linus Torvalds - (<a href="https://www.youtube.com/watch?v=o8NPllzkFhE">Ver video</a>)</small></li>
+						<li><small>Linus Torvalds interview on Linux (2001) - 2017 - (<a href="https://www.youtube.com/watch?v=TvRNPUQNIX8">Ver video</a>)</small></li>
+					</ul>
+				</section>
+			</section>
+			<section>
+					<h5>Obrigado</h5>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>

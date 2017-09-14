@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Redes de Computadores - Linux</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Redes de Computadores</h3>
+				<h5>ShellScript - Linux</h5>
+				<br />
+				<h5>Aulas do curso de Redes de Computadores</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>ShellScript</h3>
+				<p>Um script é basicamente um roteiro ou uma receita de procedimentos escrito em linguagem de computador e que executa diversas funções e/ou tarefas em um computador.</p>
+			</section>
+			<section>
+				<h3>ShellScript</h3>
+				<p>As linguagens de script são ferramentas utilizadas para controle de um determinado programa ou aplicativo; para configuração ou instalação em sistemas operacionais; entre outros controles de procedimentos.</p>
+			</section>
+			<section>
+				<h3>ShellScript</h3>
+				<p>Algumas linguagens de programação geralmente usadas como script são:  JavaScript, Lua, PHP, Python, ShellScript, Ruby, VBScript, etc.</p>
+			</section>
+			<section>
+				<h3>ShellScript</h3>
+				<p>Sempre para iniciar o script de tarefas (shell script), precisamos usar o Shebang (#!), junto com /bin/bash (O terminal que estiver usando, o mais comum é o bash). Sempre na primeira linha. Então devemos sempre iniciar o script com #!/bin/bash. Esse comando serve para rodar seu script, chamando com o nome do seu terminal.</p>
+			</section>
+			<section>
+				<section>
+					<h3>ShellScript - Como usar?</h3>
+					<p>Para usar, precisamos criar um script, escolhendo um dos exemplos abaixo:</p>
+					    <pre>
+					    	<code data-trim data-noescape>
+							$ sh ./nome_do_script.sh ou
+							$ ./nome_do_script.sh ou 
+							$ bash /caminho_completo/nome_do_script.sh
+							</code>
+						</pre>
+					</p>
+				</section>
+				<section>
+					<h3>ShellScript - Revisando</h3>
+					<p>
+						<ul>
+							<li>Todo script deve começar com “#!/bin/bash”</li>
+							<li>Cada linha é um novo comando (Procedimento)</li>
+							<li>Linhas de comentário devem começar com um #</li>
+							<li>O comando echo serve para exibir um texto na tela. Ex: echo "Hello"</li>
+						</ul>
+					</p>
+				</section>
+			</section>
+			<section>
+				<h3>Esturura do ShellScript</h3>
+				<p>No exemplo será utilizado o shell bash que a maioria das distribuições Linux utiliza de forma nativa o bash. Veja a seguir como fazer o famoso “Hello World” em shell script:</p>
+				<pre>
+					<code data-trim data-noescape>
+					#!/bin/bash
+
+					# Meu primeiro script
+
+					echo “Hello World!”
+					</code>
+				</pre>
+			</section>
+			<section>
+				<section>
+					<h3>Gravando o Arquivo do ShellScript</h3>
+					<p>Após digitar o texto, você deve salvar o script com a extensão .sh</p>
+					<pre>
+						<code data-trim data-noescape>
+						$ vi helloworld.sh
+
+						Para executar:
+
+						$ ./helloworld.sh
+
+						Mas antes precisamos dar permissão de execução para o arquivo
+
+						$ chmod +x helloworld.sh
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3>outras Opções:</h3>
+					<pre>
+						<code data-trim data-noescape>
+						#!/bin/ksh  
+
+						# Meu primeiro script
+
+						echo Hello World  
+						</code>
+					</pre>
+					
+				</section>
+				<section>
+					<h3>outras Opções:</h3>
+					<pre>
+					<code data-trim data-noescape>
+					#!/bin/sh  
+
+					# Meu primeiro script
+
+					echo Hello World  
+					</code>
+					</pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Um pouco de ShellScript</h3>
+					<p> ShellScript é como uma linguagem de programação normal então vamos ver mais a fundo:</p>
+				</section>
+				<section>
+					<h3> Variáveis em shell script</h3>
+					<pre>
+						<code data-trim data-noescape>
+					variavel="valor"
+					chamar a variavel com echo, Exemplo:
+
+					$ var1 = "Estou criando uma variavel"
+					$ echo $var1
+
+					$ echo "Entre com o valor para a variável: " ;
+					$ read var2
+					$ echo var2
+</code>
+					</pre>
+				</section>
+				<section>
+					<h3> Controle de fluxo com o if</h3>
+					<pre>
+					<code data-trim data-noescape>
+						if [ -e $linux ]
+						then
+						  echo 'A variável $linux existe.'
+						else
+						  echo 'A variável $linux não existe.'
+						fi
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> Controle de fluxo com o if</h3>
+					<pre>
+					<code data-trim data-noescape>
+						-eq	Igual
+						-ne	Diferente
+						-gt	Maior
+						-lt	Menor
+						-o	Ou
+						-d	Se for um diretório
+						-e	Se existir
+						-z	Se estiver vazio
+						-f	Se conter texto
+						-o	Se o usuário for o dono
+						-r	Se o arquivo pode ser lido
+						-w	Se o arquivo pode ser alterado
+						-x	Se o arquivo pode ser executado	
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> if aninhado</h3>
+					<pre>
+					<code data-trim data-noescape>
+						if [ -z $1 ]; then
+						  echo "Você tem de entrar com um parâmetro válido"
+						  exit
+						elif [ $1 = "parametro1" ]; then
+						  comando1
+						  comando2
+						elif [ $1 = "parametro2" ]; then
+						  comando3
+						  comando4
+						else
+						  echo "Você tem de entrar com um parâmetro válido"
+						fi
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> case</h3>
+					<pre>
+					<code data-trim data-noescape>
+						case $1 in
+						  parametro1) comando1 ; comando2 ;;
+						  parametro2) comando3 ; comando4 ;;
+						  *) echo "Você tem de entrar com um parâmetro válido" ;;
+						esac
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> for</h3>
+					<pre>
+					<code data-trim data-noescape>
+						for i in 1 2 3 4 5
+						do
+						  echo "Random number $i: $RANDOM"
+						done
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> while</h3>
+					<pre>
+					<code data-trim data-noescape>
+						variavel="valor"
+						while [ $variavel = "valor" ]; do
+						  comando1
+						  comando2
+						done
+</code>
+					</pre>
+				</section>
+				<section>
+					<h3> until</h3>
+					<pre>
+					<code data-trim data-noescape>
+						variavel="naovalor"
+						until [ $variavel = "valor" ]; do
+						  comando1
+						  comando2
+						done
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h3> Funções</h3>
+					<pre>
+					<code data-trim data-noescape>
+						funcao() {
+						  comando1
+						  comando2
+						  [...]
+						}
+						</code>
+					</pre></p>
+				</section>
+			<section>
+				<h3>Mais Sobre ShellScript</h3>
+				<p><a href="https://www.shellscript.sh/">https://www.shellscript.sh/</a></p>
+			</section>
+			<section>
+				<h3>Mais links:</h3>
+				<ul>
+					<li>http://rberaldo.com.br/curso-shell-script-comandos-basicos-linux/</li>
+					<li>http://ninjadolinux.com.br/shell-script/</li>
+					<li>https://www.javatpoint.com/AndroidManifest-xml-file-in-android</li>
+					<li>https://www.howtogeek.com/67469/the-beginners-guide-to-shell-scripting-the-basics/</li>
+					<li>http://aurelio.net/shell/apostila-introducao-shell.pdf</li>
+					<li>http://www.devin.com.br/shell_script/</li>
+				</ul>
+			</section>
+			<section>
+					<h5>Obrigado</h5>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>
