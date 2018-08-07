@@ -1,137 +1,160 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h3>Dispositivos Móveis</h3>
-					<h5>Aulas do curso de Dispositivos Móveis</h5>
-					<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
-					<p>
-						<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
-					</p>
-				</section>
-				<section>
-					<h3>Disciplina: Dispositivos Móveis</h3>
-					<h5>Ementa:</h5>
-					<ul>
-						<li>Redes de Computadores (TCP/IP - OSI) e a Internet.</li>
-						<li>Camada Física.</li>
-						<li>Camada de Enlace.</li>
-						<li>Camada de Rede e Roteamento.</li>
-						<li>Camada de Transporte (protocolos e interfaces).</li>
-						<li>Camada de segurança em Redes de Computadores.</li>
-					</ul>
-				</section>
-				<section>
-					<h5>Conteúdo Programático:</h5>
-					<ul>
-						<li>Noções básicas de redes de computadores.</li>
-						<li>Protocolos.</li>
-						<li>Comutação.</li>
-						<li>Arquitetura de redes.</li>
-						<li>A Internet.</li>
-						<li>Protocolos de camada de aplicação, HTTP, SMTP, DNS, FTP.</li>
-						<li>Camada de transporte.</li>
-					</ul>
-				</section>
-				<section>
-					<h5>Conteúdo Programático:</h5>
-					<ul>
-						<li>Noções de sockets.</li>
-						<li>Protocolos de transporte confiáveis, protocolo UDP, protocolo TCP.</li>
-						<li>Modelo OSI.</li>
-						<li>Modelo TCP/IP.</li>
-						<li>Camada de redes: o protocolo IP, o protocolo ICMP, roteamento na Internet, OSPF, RIP, BGP.</li>
-						<li>Camada de enlace de dados: mecanismos de detecção de erros, protocolos de acesso ao meio (MAC).</li>
-					</ul>
-				</section>
-				<section>
-					<h5>Conteúdo Programático:</h5>
-					<ul>
-						<li>Redes locais; tecnologia ethernet. Conceitos básicos de gerenciamento de redes: SMI (Structure of
-Management Information).</li>
-						<li>Protocolo SNMP (Simple Network Management Protocol).</li>
-						<li>MIB (Management Information Base).</li>
-						<li>Ferramentas de Gerência de Redes.</li>
-					</ul>
-				</section>
-				<section>
-						<h5>Bibliografia básica:</h5>
-						<ul>
-							<li>KUROSE, James F. & ROSS, Keith W. Redes de Computadores a Internet: uma nova Abordagem. 3a Edição. Editora Addison Wesley, 2006.</li>
-							<li>SOARES, Luiz Fernando Gomes, et al. Redes de computadores: das LANs, MANs e WANs as redes ATM. 2a Edição Editora Campus, 1995.</li>
-							<li>TANENBAUM, Andrew. Redes de Computadores. 3a Edição. Editora Prentice Hall do Brasil, 1996.</li>
-						</ul>
-				</section>
-				<section>
-						<h5>Chamada</h5>
-						<ul>
-							<li>10 minutos depois de começar a aula.</li>
-							<li>10 minutos antes de acabar a aula.</li>
-						</ul>
-				</section>
-				<section>
-						<h5>Execícios</h5>
-						<p>Serão feitos pelos blackboard. Se for feitos todos os exercícios (100%), terá os 10 pontos.</p> 
-				</section>
-				<section>
-				  <h3>Trabalho Final</h3>
-				  <p style="font-size:30px">Indívidual. Nota 10 pontos, distribução 8 pontos da parte escrita e 2 apresentação oral.
-				   <br />Assuntos: <br />
-					<ul>
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Dispositivos Móveis</h3>
+				<h5>Aulas do curso de Dispositivos Móveis</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>Disciplina: Dispositivos Móveis</h3>
+				<h5>Ementa:</h5>
+				<ul>
+					<li><small>Conceitos e paradigmas de programação para dispositivos móveis.</small></li>
+					<li><small>Principais características dos dispositivos móveis; Sistemas Operacionais para Dispositivos móveis.</small></li>
+					<li><small>Estudos dos ambientes de desenvolvimento, plataformas, Apresentação do Android Studio e linguagens de programação.</small></li>
+					<li><small>Desenvolvimento de aplicações com formulários e interfaces interativas em dispositivos móveis.</small></li>
+					<li><small>Desenvolvimento de aplicações, em dispositivos móveis, que permitam armazenamento de dados e comunicação remota com outros dispositivos.</small></li>
+					<li><small>Desenvolvimento de aplicações baixo nível utilizando bibliotecas de manipulação gráfica.</small></li>
+					<li><small>Questões de implementação: tamanho da aplicação, fator de forma da tela para smartphones e tablets, compilação para um dispositivo específico ou para dispositivos múltiplos, limitações dos dispositivos.</small></li>
+				</ul>
+			</section>
+			<section>
+				<h5>Conteúdo Programático:</h5>
+				<ul>
+					<li><small>Fundamentos de Computação Móvel, Transmissão de dados em Redes móveis e aspectos de arquitetura de redes móveis;</small></li>
+					<li><small>Construção e modelagem de Sistemas Computacionais, utilizando técnicas de engenharia de Software, modelagem de dados e processos;</small></li>
+					<li><small>Sistemas operacionais móveis, Android e iOS, com suas arquiteturas gerais, APIs, características específicas e aspectos de instalação e execução de Aplicativos e processos.</small></li>
+					<li><small>Desenvolvimento de Aplicações Móveis utilizando plataformas líderes de adoção pelo mercado. Ferramentas de desenvolvimento, estrutura de projetos, linguagens empregadas, acesso a banco de dados e concepção de produtos de software.</small></li>
+					<li><small>Interface gráfica; GPS; Bluetooth; Sistemas operacionais móveis; Dispositivos móveis Android; Sistema operacional Android; Máquina Virtual Dalvik; Versões do sistema operacional Android.</small></li>
+					<li><small>Origem Android; Classes; Atributos; Métodos; Modificadores de métodos e atributos; Encapsulamento; Polimorfismo; Herança; Interface; Instanciando objetos; Classes abstratas; Métodos e atributos estáticos.</small></li>
+				</ul>
+			</section>
+			<section>
+				<h5>Conteúdo Programático:</h5>
+				<ul>
+					<li><small>SDK Android; Android Studio; Documentação Android; Exemplos de programas; Ferramentas Android; API Android SDK; Ciclo de vida de uma aplicação Android.</small></li>
+					<li><small>Criando o primeiro projeto no Android Studio; Arquivo AndroidManifest.xml; R.java; HelloWorld.java; Arquivos strings.xml; Estrutura física do projeto Android.</small></li>
+					<li><small>Pacotes da API Android; Pacote android.os; Pacote android.app; Pacote android.widget.</small></li>
+					<li><small>Entendendo os intents; Criando uma aplicação usando intents; Criando uma aplicação com intents integrados ao envio de mensagens SMS.</small></li>
+					<li><small>Framework SQLiteDatabase; Framework ContentProvider; URIs.</small></li>
+					<li><small>Arquitetura MVC; Interface gráfica; Eventos e Listener; Controller.</small></li>
+				</ul>
+			</section>
+			<section>
+				<h5>Conteúdo Programático:</h5>
+				<ul>
+					<li><small>Gerenciadores de layout; FrameLayout; LinearLayout; TableLayout; AbsoluteLayout; RelativeLayout; EditText e TextView; Checkbox e Radio Group; Spinner; ListView e ListActivity; ScrollView; TabHost; Button e ImageButton; Gerando arquivos XML de forma automática.</small></li>
+					<li><small>Aplicação de Mapas e Geolocalização.</small></li>
+					<li><small>Overview da Plataforma IOS.</small></li>
+					<li><small>Como utilizar o react native para aplicações Híbridas.</small></li>
+					<li><small>Segurança de informação em sistemas móveis, conceitos e implementação de aplicativo de Finanças e Marketing para sistemas móveis.</small></li>
+				</ul>
+			</section>
+			<section>
+				<h5>Bibliografia básica:</h5>
+				<ul>
+					<li>LEE, V.; SCHENEIDER, H.; SCHELL, R. Aplicações móveis: arquitetura, projeto e desenvolvimento. São Paulo: Pearson Education: Makron Books, 2005. 328 p.</li>
+					<li>LECHETA, Ricardo R. Google Android: aprenda a criar aplicações para dispositivos móveis com o Android SDK. 2. ed. São Paulo: Novatec, 2010.</li>
+					<li>DEITEL, Paul; DEITEL, Harvey. Java: como programar. 8. ed. São Paulo: Pearson, 2010.</li>
+				</ul>
+			</section>
+			<section>
+				<h5>Bibliografia Complementar:</h5>
+				<ul>
+					<li>LECHETA, Ricardo R. Google android para tablets: Aprenda a desenvolver aplicações para o Android - de smartphones a tablets. São Paulo: Novatec, 2012.</li>
+					<li>PEREIRA, Lúcio Camilo Oliva; SILVA, Michel Lourenço da. Android para desenvolvedores. 2. ed. Rio de Janeiro: Brasport, 2012.</li>
+					<li>MEDNIEKS, Zigurd; et al. Programando o Android. 2. ed. São Paulo: Novatec, 2012.</li>
+					<li>ABLESON, W. Frank; et al. Android em ação. 3. ed. Rio de Janeiro: Elsevier, 2012.</li>
+					<li>ASCENCIO, Ana Fernanda G.; CAMPOS, Edilene A. V. de. Fundamentos da programação de computadores: algoritmos, pascal, C/C ++ e Java. 2. ed. São Paulo: Pearson, 2007.</li>
+					<li>LECHETA, Ricardo R.. Desenvolvendo para iPhone e iPad: aprenda a desenvolver aplicações utilizando o iOS SDK. 3 ed. São Paulo: Novatec, 2014. 624 p. il. </li>
+				</ul>
+			</section>
+			<section>
+				<h5>Chamada</h5>
+				<ul>
+					<li>10 minutos depois de começar a aula.</li>
+					<li>10 minutos antes de acabar a aula.</li>
+				</ul>
+			</section>
+			<section>
+				<h5>Execícios</h5>
+				<p>Serão feitos pelos blackboard. Se for feitos todos os exercícios (100%), terá os 10 pontos.</p>
+			</section>
+			<section>
+				<h3>Trabalho Final</h3>
+				<p style="font-size:30px">Entegra do aplicativo de tema de livre escolha completo com os assuntos:
+					<br />Assuntos: (Breve)
+					<br />
+					<!--ul>
 						<li>Zabbix - http://www.zabbix.com/</li>
-					    <li>Nagios - https://www.nagios.org/ </li>
+						<li>Nagios - https://www.nagios.org/ </li>
 						<li>Iptables - https://en.wikipedia.org/wiki/Iptables </li>
 						<li>Squid - http://www.squid-cache.org/ </li>
 						<li>OpenVPN - https://openvpn.net</li>
 						<li>IPV4/IPV6 - https://newesc.pt/ipv4-ipv6-diferencas/</li>
-					  </ul>
-				  </p>
- 				</section>
-				<section>
-					<img data-src="img/Respect_8-512.png" alt="Obrigado">
-				</section>
-			</div>
+					</ul-->
+				</p>
+			</section>
+			<section>
+				<img data-src="img/Respect_8-512.png" alt="Obrigado">
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
 </html>

@@ -1,337 +1,343 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Gerenciadores de Layout no Android</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+	<title>Gerenciadores de Layout no Android</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Dispositivos Móveis</h3>
+				<h5>Aulas do curso de Dispositivos Móveis</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>Android</h3>
+				<p><img data-src="img/android1.png"></p>
+			</section>
+			<section>
+				<h3>O que é o Android</h3>
+				<p>Android é o nome do sistema operacional baseado em Linux que opera em celulares (smartphones), netbooks e tablets. É desenvolvido pela Open Handset Alliance, uma aliança entre várias empresas, dentre elas a Google.</p>
+			</section>
+			<section>
+				<h3>Estrutura do Android</h3>
+				<p><img data-src="img/estruturaandroid.png"></p>
+			</section>
+			<section>
+				<h3>O Android é baseado em fluxo em Atividades (Activitys)</h3>
+			</section>
+			<section>
+				<h3>O que é activity</h3>
+				<p>Activity é uma classe que representa uma/ou mais tarefas, muito focada, no que um usuário pode fazer em uma aplicação Android. A maioria das atividades fazem interação com usuário.</p>
+			</section>
+			<section>
+				<h3>O que é activity</h3>
+				<p>Activity é um componente de aplicativo que fornece uma tela na qual os usuários podem interagir para fazer qualquer coisa, como fazer ligação, tirar uma foto, enviar um e-mail ou visualizar um mapa.</p>
+			</section>
+			<section>
+				<h3>O que a activity faz?</h3>
+				<p>A classe de atividade controla todo processo de interação com S.O e o usuário, como criar telas e dimensões, conectar banco de dados, e demais ações de integração com usuário.</p>
+			</section>
+			<section>
+				<h3>Mais sobre activity</h3>
+				<p>
+					<ul>
+						<li><small>Cada vez que uma nova activity inicia, a anterior é parada, mas o sistema preserva a acitivity na stack.</small></li>
+						<li><small>Quando uma nova activity inicia, ele é empurada para a back stack e coloca ela em foco para o usuário.</small></li>
+						<li><small>Cada atividade recebe uma janela para desenhar sua interface que é visível para usuário.</small></li>
+						<li><small>Um aplicativo geralmente consiste em várias atividades que são fracamente ligadas entre si.</small></li>
+					</ul>
+				</p>
+			</section>
+
+			<section>
 				<section>
-					<h3>Dispositivos Móveis</h3>
-					<h5>Aulas do curso de Dispositivos Móveis</h5>
-					<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+					<h3>Processo antre as Activitys</h3>
+					<p><img data-src="img/Non-linear-flow-1.jpg"></p>
+				</section>
+				<section>
 					<p>
-						<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onCreate()</td>
+								<td><small>Chamado quando a atividade é criado. <br />Aqui é quando você deve fazer todas as funções como: <br />criar as views, linkar os dados às listas, etc.</small></td>
+								<td>Não</td>
+								<td>onStart()</td>
+							</tr>
+						</table>
 					</p>
 				</section>
 				<section>
-					<h3>Android</h3>
-					<p><img data-src="img/android1.png"></p>
-				</section>
-				<section>
-					<h3>O que é o Android</h3>
-					<p>Android é o nome do sistema operacional baseado em Linux que opera em celulares (smartphones), netbooks e tablets. É desenvolvido pela Open Handset Alliance, uma aliança entre várias empresas, dentre elas a Google.</p>
-				</section>
-				<section>
-					<h3>Estrutura do Android</h3>
-					<p><img data-src="img/estruturaandroid.png"></p>
-				</section>
-				<section>
-					<h3>O Android é baseado em fluxo em Atividades (Activitys)</h3>
-				</section>
-				<section>
-					<h3>O que é activity</h3>
-					<p>Activity é uma classe que representa uma/ou mais tarefas, muito focada, no que um usuário pode fazer em uma aplicação Android. A maioria das atividades fazem interação com usuário.</p>
-				</section>
-				<section>
-					<h3>O que é activity</h3>
-					<p>Activity é um componente de aplicativo que fornece uma tela na qual os usuários podem interagir para fazer qualquer coisa, como fazer ligação, tirar uma foto, enviar um e-mail ou visualizar um mapa.</p>
-				</section>
-				<section>
-					<h3>O que a activity faz?</h3>
-					<p>A classe de atividade controla todo processo de interação com S.O e o usuário, como criar telas e dimensões, conectar banco de dados, e demais ações de integração com usuário.</p>
-				</section>
-				<section>
-					<h3>Mais sobre activity</h3>
 					<p>
-					   <ul>
-							<li><small>Cada vez que uma nova activity inicia, a anterior é parada, mas o sistema preserva a acitivity na stack.</small></li>
-							<li><small>Quando uma nova activity inicia, ele é empurada para a back stack e coloca ela em foco para o usuário.</small></li>
-							<li><small>Cada atividade recebe uma janela para desenhar sua interface que é visível para usuário.</small></li>
-							<li><small>Um aplicativo geralmente consiste em várias atividades que são fracamente ligadas entre si.</small></li>
-					   </ul>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
 					</p>
 				</section>
-			
 				<section>
-					<section>
-						<h3>Processo antre as Activitys</h3>
-						<p><img data-src="img/Non-linear-flow-1.jpg"></p>
-					</section>
-							<section>
-							  <p>
-								<table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onCreate()</td>
-									<td><small>Chamado quando a atividade é criado. <br />Aqui é quando você deve fazer todas as funções como: <br />criar as views, linkar os dados às listas, etc.</small></td>
-									<td>Não</td>
-									<td>onStart()</td>
-								 </tr>
-							  </table>
-							  </p>
-							</section>
-							 <section>
-							  <p>
-							    <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 </p>
-											</section>
-							  <section>
-												<p>
-								 <tr>
-									<td>onRestart()</td>
-									<td><small>Chamado após a atividade ser parada e antes de ser reinciada. <br />Sempre seguida por  onStart()</small></td>
-									<td>Não</td>
-									<td>onStart()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>
-							  <section>
-												<p>
-							  <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 </p>
-											</section>
-							  <section>
-												<p>
-								 <tr>
-									<td>onStart()</td>
-									<td><small>Chamado quando a atividade se torna visível ao usuário. <br />Seguido pelo onResume() se a atividade roda na frente<br /> ou por onStop() se ela se torna invisível.</small></td>
-									<td>Não</td>
-									<td>onResume()ou onStop()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>
-							  <section>
-												<p>
-							  <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onResume()</td>
-									<td><small>Chamado quando a atividade vai iniciar a interação com o usuário. <br />Nesse ponto, sua atividade está no topo da pilha de atividades <br />e quaisquer dados que sejam inseridos serão feitos aqui. Sempre seguido pelo  onPause().</small></td>
-									<td>Não</td>
-									<td>onPause()</td>
-								 </tr>
-							  </table>
-							  </p>
-							  </section>
-							  <section>
-								<p>
-								<table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onPause()</td>
-									<td><small>Chamado quando o sistema está por resumir a atividade anterior. Isso é tipicamente usado para persistir quaisquer mudanças ainda não efetivadas, parar animações e oturas coisas que possam consumir a CPU, etc. </small></td>
-									<td>Sim</td>
-									<td>onResume()ouonStop()</td>
-								 </tr>
-							  </table>
-							  </p>
-								</section>
-											<section>
-								<p>
-								<table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onPause()</td>
-									<td><small>Implementações desse método devem ser rápidos pois a próxima atividade não será mostrada até que esse método seja finalizado. Seguido por onResume() se a atividade retornar para a frente ou onStop() se ela se tornar invisível ao usuário.</small></td>
-									<td>Sim</td>
-									<td>onResume()ouonStop()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>
-							  <section>
-												<p>
-							  <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onStop()</td>
-									<td><small>Chamado quando a atividade não mais estiver visível ao usuário, pois outra atividade foi resumida e está na frente desta.</small></td>
-									<td>Sim</td>
-									<td>onRestart()ouonDestroy()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>
-										<section>
-												<p>
-							  <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onStop()</td>
-									<td><small>Isso pode acontecer porque outra atividade está sendo iniciada, uma atividade existende está sendo trazida para a frente ou essa atividade estiver sendo finalizada.</small></td>
-									<td>Sim</td>
-									<td>onRestart()ouonDestroy()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>	
-											<section>
-												<p>
-							  <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onStop()</td>
-									<td><small>Seguida pelo onRestart() se essa atividade está voltando para interagir com o usuário ou onDestroy() se a atividade estiver sendo encerrada.</small></td>
-									<td>Sim</td>
-									<td>onRestart()ouonDestroy()</td>
-								 </tr>
-							  </table>
-							  </p>
-											</section>
-							  <section>
-												<p>
-							   <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onDestroy()</td>
-									<td><small>A chamada final que você receberá antes que a atividade seja destruída ou finalizada.</small></td>
-									<td>Sim</td>
-									<td>Nada</td>
-								 </tr>
-							  </table>
-							  </p>
-							</section>
-							<section>
-												<p>
-							   <table border = "1">
-								 <tr>
-									<th>Método</th>
-									<th>Observação</th>
-									<th>Pode ser morto?</th>
-									<th>Próximo</th>
-								 </tr>
-								 
-								 <tr>
-									<td>onDestroy()</td>
-									<td><small>Isso pode acontecer porque a atividade está, <br />de fato, sendo encerrada (alguém chamou finish() nela) ou porque o sistema está <br />temporariamente destruindo a instância da atividade para aumentar o espaço na memória. <br />Você pode distinguir entre esses cenários com o método isFinishing()</small></td>
-									<td>Sim</td>
-									<td>Nada</td>
-								 </tr>
-							  </table>
-							  </p>
-							</section>
-						
+					<p>
+						<tr>
+							<td>onRestart()</td>
+							<td><small>Chamado após a atividade ser parada e antes de ser reinciada. <br />Sempre seguida por  onStart()</small></td>
+							<td>Não</td>
+							<td>onStart()</td>
+						</tr>
+						</table>
+					</p>
 				</section>
 				<section>
-					<h3>Ciclo de Vida</h3>
-					<p><img data-src="img/clico1.jpg"></p>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+					</p>
 				</section>
 				<section>
-					<h3>Ciclo de Vida</h3>
-					<p>Atividades no sistema são gerenciadas como um activity stack  ou pilha de atividades em português. Quando uma atividade é iniciada, ela é colocada no topo da pilha e se torna a atividade corrente - a atividade anterior sempre permanece abaixo na pilha e não vai ser mostrada enquanto a atividade corrente não terminar.</p>
+					<p>
+						<tr>
+							<td>onStart()</td>
+							<td><small>Chamado quando a atividade se torna visível ao usuário. <br />Seguido pelo onResume() se a atividade roda na frente<br /> ou por onStop() se ela se torna invisível.</small></td>
+							<td>Não</td>
+							<td>onResume()ou onStop()</td>
+						</tr>
+						</table>
+					</p>
 				</section>
 				<section>
-					<section>
-						<h3>Uma atividade tem quatro estados essenciais:</h3>
-					</section>
-					<section>
-						<h3>1º Estado:</h3>
-						<p>Se uma atividade está sendo executada e está sendo mostrada na tela (que é o topo da pilha), ela está em modo active ou running.</p>
-					</section>
-					<section>
-						<h3>2º Estado:</h3>
-						<p>Se uma atividade perdeu o foco mas ainda assim está visível (ou seja, uma nova atividade está sendo mostrada na tela mas não ocupando-a completamente - atividades em janelas flutuantes, por exemplo, ela está em modo paused. Uma atividade em modo paused está completamente viva (ela mantém todos os estados e informações e mantém-se relacionada ao gerenciador de janelas), mas pode ser encerrado pelo sistema em situações de memória baixa extremas.</p>
-					</section>
-					<section>
-						<h3>3º Estado:</h3>
-						<p>Se uma atividade é completamente obscurecida por outra atividade, ela está em modo stopped. Ela ainda retém o seu estado e informações, contudo não é mais visível pelo usuário e sua janela está escondida e pode acontecer de ser encerrada pelo sistema quando for necessário liberar memória.</p>
-					</section>
-					<section>
-						<h3>4º Estado:</h3>
-						<p>Se uma atividade está em modo paused ou stopped, o sistema pode retirar a atividade da memória simplesmente pedindo a ela que seja finalizada ou simplesmente matando o seu processo. Quando é mostrada novamente ao usuário, ela terá de ser novamente reiniciada e restaurada para seu estado anterior.</p>
-					</section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onResume()</td>
+								<td><small>Chamado quando a atividade vai iniciar a interação com o usuário. <br />Nesse ponto, sua atividade está no topo da pilha de atividades <br />e quaisquer dados que sejam inseridos serão feitos aqui. Sempre seguido pelo  onPause().</small></td>
+								<td>Não</td>
+								<td>onPause()</td>
+							</tr>
+						</table>
+					</p>
 				</section>
 				<section>
-					<h3>Ciclo de Vida</h3>
-					<p><img data-src="img/activity_lifecycle.png" width="600" height="550"></p>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onPause()</td>
+								<td><small>Chamado quando o sistema está por resumir a atividade anterior. Isso é tipicamente usado para persistir quaisquer mudanças ainda não efetivadas, parar animações e oturas coisas que possam consumir a CPU, etc. </small></td>
+								<td>Sim</td>
+								<td>onResume()ouonStop()</td>
+							</tr>
+						</table>
+					</p>
 				</section>
-				 <section>
-					<h3>Ciclo de Vida - Código</h3>
-					<p><pre>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onPause()</td>
+								<td><small>Implementações desse método devem ser rápidos pois a próxima atividade não será mostrada até que esse método seja finalizado. Seguido por onResume() se a atividade retornar para a frente ou onStop() se ela se tornar invisível ao usuário.</small></td>
+								<td>Sim</td>
+								<td>onResume()ouonStop()</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onStop()</td>
+								<td><small>Chamado quando a atividade não mais estiver visível ao usuário, pois outra atividade foi resumida e está na frente desta.</small></td>
+								<td>Sim</td>
+								<td>onRestart()ouonDestroy()</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onStop()</td>
+								<td><small>Isso pode acontecer porque outra atividade está sendo iniciada, uma atividade existende está sendo trazida para a frente ou essa atividade estiver sendo finalizada.</small></td>
+								<td>Sim</td>
+								<td>onRestart()ouonDestroy()</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onStop()</td>
+								<td><small>Seguida pelo onRestart() se essa atividade está voltando para interagir com o usuário ou onDestroy() se a atividade estiver sendo encerrada.</small></td>
+								<td>Sim</td>
+								<td>onRestart()ouonDestroy()</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onDestroy()</td>
+								<td><small>A chamada final que você receberá antes que a atividade seja destruída ou finalizada.</small></td>
+								<td>Sim</td>
+								<td>Nada</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+				<section>
+					<p>
+						<table border="1">
+							<tr>
+								<th>Método</th>
+								<th>Observação</th>
+								<th>Pode ser morto?</th>
+								<th>Próximo</th>
+							</tr>
+
+							<tr>
+								<td>onDestroy()</td>
+								<td><small>Isso pode acontecer porque a atividade está, <br />de fato, sendo encerrada (alguém chamou finish() nela) ou porque o sistema está <br />temporariamente destruindo a instância da atividade para aumentar o espaço na memória. <br />Você pode distinguir entre esses cenários com o método isFinishing()</small></td>
+								<td>Sim</td>
+								<td>Nada</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+
+			</section>
+			<section>
+				<h3>Ciclo de Vida</h3>
+				<p><img data-src="img/clico1.jpg"></p>
+			</section>
+			<section>
+				<h3>Ciclo de Vida</h3>
+				<p>Atividades no sistema são gerenciadas como um activity stack ou pilha de atividades em português. Quando uma atividade é iniciada, ela é colocada no topo da pilha e se torna a atividade corrente - a atividade anterior sempre permanece abaixo na pilha
+					e não vai ser mostrada enquanto a atividade corrente não terminar.</p>
+			</section>
+			<section>
+				<section>
+					<h3>Uma atividade tem quatro estados essenciais:</h3>
+				</section>
+				<section>
+					<h3>1º Estado:</h3>
+					<p>Se uma atividade está sendo executada e está sendo mostrada na tela (que é o topo da pilha), ela está em modo active ou running.</p>
+				</section>
+				<section>
+					<h3>2º Estado:</h3>
+					<p>Se uma atividade perdeu o foco mas ainda assim está visível (ou seja, uma nova atividade está sendo mostrada na tela mas não ocupando-a completamente - atividades em janelas flutuantes, por exemplo, ela está em modo paused. Uma atividade em modo
+						paused está completamente viva (ela mantém todos os estados e informações e mantém-se relacionada ao gerenciador de janelas), mas pode ser encerrado pelo sistema em situações de memória baixa extremas.</p>
+				</section>
+				<section>
+					<h3>3º Estado:</h3>
+					<p>Se uma atividade é completamente obscurecida por outra atividade, ela está em modo stopped. Ela ainda retém o seu estado e informações, contudo não é mais visível pelo usuário e sua janela está escondida e pode acontecer de ser encerrada pelo sistema
+						quando for necessário liberar memória.</p>
+				</section>
+				<section>
+					<h3>4º Estado:</h3>
+					<p>Se uma atividade está em modo paused ou stopped, o sistema pode retirar a atividade da memória simplesmente pedindo a ela que seja finalizada ou simplesmente matando o seu processo. Quando é mostrada novamente ao usuário, ela terá de ser novamente
+						reiniciada e restaurada para seu estado anterior.</p>
+				</section>
+			</section>
+			<section>
+				<h3>Ciclo de Vida</h3>
+				<p><img data-src="img/activity_lifecycle.png" width="600" height="550"></p>
+			</section>
+			<section>
+				<h3>Ciclo de Vida - Código</h3>
+				<p><pre>
 public class Activity extends ApplicationContext {
 	protected void onCreate(Bundle savedInstanceState){}
-	protected void onStart(){}     
+	protected void onStart(){}
 	protected void onRestart(){}
 	protected void onResume(){}
 	protected void onPause(){}
@@ -339,227 +345,64 @@ public class Activity extends ApplicationContext {
 	protected void onDestroy(){}
 }
 					</pre></p>
-				</section>
-				
+			</section>
+
+			<section>
 				<section>
-					<section>
-						<h3>Existem três laços que você pode achar interessante monitorar dentro de sua atividade:</h3>
-					</section>
-					<section>
-						<h3>1º laço:</h3>
-						<p>O ciclo de vida completo de uma atividade acontece entre a primeira chamada do onCreate(Bundle) até o onDestroy(). Uma atividade vai fazer toda a configuração do estado "global" no onCreate() e liberar os recursos remanescentes em onDestroy(). Por exemplo, se você tem uma thread rodando em background para fazer o download de dados da rede, você deve criar essa thread em onCreate() e então pará-la em onDestroy().</p>
-					</section>
-					<section>
-						<h3>2º laço:</h3>
-						<p>O vida visível de uma atividade acontece entre o onStart até o onStop. Durante esse tempo o usuário pode ver a atividade na tela, apesar de às vezes não estar completamente visível ao usuário. Entre esses dois métodos você pode manter os recursos que são necessários para mostrar a atividade ao usuário. Por exemplo, você pode registrar um BroadcastReceiver no onStart() para monitorar as mudanças que impactam a interface. Os métodos onStart() e onStop() podem ser chamados múltiplas vezes enquanto a atividade se torna visível e escondida do usuário.</p>
-					</section>
-					<section>
-						<h3>3º laço:</h3>
-						<p>O ciclo de vida de uma atividade é definida pelos métodos de atividade mostrados abaixo. Todos eles podem ser sobrescritos para fazer o trabalho apropriado quando um estado de atividade mude. Todas as atividades vão implementar onCreate(Bundle) para que as mudanças de dados sejam persistidas e, de outra maneira, preparar para encerrar a interação com o usuário. Voc}e pode sempre chamar a superclasse quando implementando um desses métodos.</p>
-					</section>
+					<h3>Existem três laços que você pode achar interessante monitorar dentro de sua atividade:</h3>
 				</section>
 				<section>
-					<h3>O que podemos fazer com o Android?</h3>
-					<p><img data-src="img/overview.jpg"></p>
+					<h3>1º laço:</h3>
+					<p>O ciclo de vida completo de uma atividade acontece entre a primeira chamada do onCreate(Bundle) até o onDestroy(). Uma atividade vai fazer toda a configuração do estado "global" no onCreate() e liberar os recursos remanescentes em onDestroy(). Por
+						exemplo, se você tem uma thread rodando em background para fazer o download de dados da rede, você deve criar essa thread em onCreate() e então pará-la em onDestroy().</p>
 				</section>
 				<section>
-					<h3>Gerenciadores de Layout no Android</h3>
-					<p><img data-src="img/android-root.png"></p>
+					<h3>2º laço:</h3>
+					<p>O vida visível de uma atividade acontece entre o onStart até o onStop. Durante esse tempo o usuário pode ver a atividade na tela, apesar de às vezes não estar completamente visível ao usuário. Entre esses dois métodos você pode manter os recursos
+						que são necessários para mostrar a atividade ao usuário. Por exemplo, você pode registrar um BroadcastReceiver no onStart() para monitorar as mudanças que impactam a interface. Os métodos onStart() e onStop() podem ser chamados múltiplas vezes enquanto
+						a atividade se torna visível e escondida do usuário.</p>
 				</section>
 				<section>
-					<h3>O que são regenciadores de Layout?</h3>
-					<p>
-						<small>Os gerenciadores de layout no Android são utilizados para organizar a disposição dos componentes na tela, de acordo com o gerenciador de layout escolhido utilizaremos atributos diferentes para posicionar os componentes. A classe-mãe de todos os gerenciadores de layout é a ‘android.view.ViewGroup’, nesse artigo iremos verificar as suas subclasses e o comportamento de cada uma.</small>
-					</p>
+					<h3>3º laço:</h3>
+					<p>O ciclo de vida de uma atividade é definida pelos métodos de atividade mostrados abaixo. Todos eles podem ser sobrescritos para fazer o trabalho apropriado quando um estado de atividade mude. Todas as atividades vão implementar onCreate(Bundle) para
+						que as mudanças de dados sejam persistidas e, de outra maneira, preparar para encerrar a interação com o usuário. Voc}e pode sempre chamar a superclasse quando implementando um desses métodos.</p>
 				</section>
-				<section>
-					<section>
-						<h2>FrameLayout</h2>
-						<p><small>É o mais simples de todos os gerenciadores de layout e é utilizado para empilhar uma view sobre a outra. É possível adicionar vários componentes dentro do FrameLayout. Os últimos componentes ficarão sobre os anteriores, seguindo o conceito de pilha, em que o ultimo elemento fica no topo. Um exemplo de utilização é quando queremos inserir uma ProgressBar acima de outro componente para indicar que estamos carregando alguma coisa. O exemplo a seguir demonstra um FrameLayout utilizando uma ProgressBar sobre um elemento de texto.</small></p>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs" data-trim contenteditable>
-								<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-							    android:layout_height="match_parent"
-							    android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin"
-							    android:paddingTop="@dimen/activity_vertical_margin" android:paddingBottom="@dimen/activity_vertical_margin"
-							    tools:context=".MainActivity">
-
-									<TextView
-							        android:text="Insira o seu nome"
-							        android:layout_width="match_parent"
-							        android:layout_height="wrap_content" />
-								  <EditText
-							        android:layout_marginTop="10dp"
-							        android:layout_width="match_parent"
-							        android:layout_height="wrap_content" />
-								  <ProgressBar
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content"
-							        android:layout_gravity="top|center"/>
-
-							</FrameLayout>
-						 </code>
-					 </pre>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Linear Layout</h2>
-						<p><small>O LinearLayout é uma ViewGroup que alinha todos os seus componentes em um único sentido configurado através do atributo android:orientation. Quando utilizamos a orientação vertical teremos apenas um elemento por linha independente do tamanho do elemento e ao utilizarmos a orientação horizontal teremos apenas uma linha para todos os elementos.</small></p>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs" data-trim contenteditable>
-								<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-								    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-								    android:layout_height="match_parent"
-								    android:paddingLeft="@dimen/activity_horizontal_margin"
-								    android:paddingRight="@dimen/activity_horizontal_margin"
-								    android:paddingTop="@dimen/activity_vertical_margin"
-								    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-								    android:orientation="vertical">
-
-								    <TextView
-								        android:layout_marginTop="10dp"
-								        android:text="Insira o seu nome"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								    <EditText
-								        android:layout_marginTop="10dp"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-
-								    <TextView
-								        android:layout_marginTop="10dp"
-								        android:text="Insira o seu endereço"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								    <EditText
-								        android:layout_marginTop="10dp"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								</LinearLayout>
-						 </code>
-					 </pre>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Relative Layout</h2>
-						<p><small>RelativeLayout é uma ViewGroup que posiciona seus os componentes utilizando posições relativas. Essa posição pode ser especificada de acordo com a posição de outro componente (utilizando os atributos below, left, etc) ou de acordo com a posição do próprio RelativeLayout (utilizando os atributos bottom, left ou center). Para realizar o posicionamento relativo devemos identificar os componentes através do seu id. No código a seguir podemos verificar que os atributos layout_below, layout_toRightOf e layout_alignParentTop são utilizados para fazer esse posicionamento relativo.</small></p>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs" data-trim contenteditable>
-								<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity"
-							    android:layout_width="match_parent" android:layout_height="match_parent"
-							    android:padding="15dp" android:orientation="horizontal">
-
-							    <TextView
-							        android:id="@+id/nomeTextView"
-							        android:layout_marginTop="10dp"
-							        android:layout_alignParentTop="true"
-							        android:text="Insira o seu nome"
-
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content" />
-
-							    <EditText
-							        android:id="@+id/nomeEditText"
-							        android:layout_toRightOf="@+id/nomeTextView"
-							        android:layout_width="fill_parent"
-							        android:layout_height="wrap_content" />
-
-							    <TextView
-							        android:id="@+id/enderecoTextView"
-							        android:layout_below="@id/nomeTextView"
-							        android:text="Insira o seu endereço"
-							        android:paddingTop="15dp"
-
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content" />
-
-							    <EditText
-							        android:id="@+id/enderecoEditText"
-							        android:layout_below="@id/nomeTextView"
-							        android:layout_toRightOf="@id/enderecoTextView"
-							        android:layout_width="fill_parent"
-							        android:layout_height="wrap_content" />
-
-							</RelativeLayout>
-						 </code>
-					 </pre>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Grid View</h2>
-						<p><small>A classe android.widget.GridLayout organiza as views em linhas e colunas utilizando os atributos layout_row e layout_column. O GridLayout só esta disponível a partir do Android 4.0, mas podemos utilizar a biblioteca de compatibilidade android.support.v7.widget.GridLayout para adicionar o suporte a versões superiores ao Android 2.1.</small></p>
-					</section>
-					<section>
-						<pre>
-							<code class="hljs" data-trim contenteditable>
-								<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity"
-							    android:layout_width="match_parent" android:layout_height="match_parent"
-							    android:columnCount="2" android:rowCount="2"
-							    android:padding="15dp">
-
-							    <Button
-							        android:layout_width="200dp" android:layout_height="wrap_content"
-							        android:layout_column="0" android:layout_row="0"
-							        android:text="Botão 01"/>
-
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="0" android:layout_row="1"
-							        android:text="Botão 02"/>
-
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="1" android:layout_row="0"
-							        android:text="Botão 03"/>
-
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="1" android:layout_row="1"
-							        android:text="Botão 04"/>
-
-							</GridLayout>
-						 </code>
-					 </pre>
-					</section>
-				</section>
-				<section>
-					<h2>Visão geral da IU do Android</h2>
-					<p><a href="https://developer.android.com/guide/topics/ui/overview.html" target="_blank">Overview do Android!</a></p>
-				</section>
-				<section>
-					<img data-src="img/Respect_8-512.png" alt="Obrigado">
-				</section>
-			</div>
+			</section>
+			<section>
+				<h3>O que podemos fazer com o Android?</h3>
+				<p><img data-src="img/overview.jpg"></p>
+			</section>
+			<section>
+				<img data-src="img/Respect_8-512.png" alt="Obrigado">
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
 </html>
