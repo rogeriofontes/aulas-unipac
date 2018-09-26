@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Redes de Computadores - Linux</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Redes de Computadores</h3>
+				<h5>vsftpd</h5>
+				<br />
+				<h5>Aulas do curso de Redes de Computadores</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>O que é o vsftpd?</h3>
+				<p>O vsftpd, (ou very secure FTP daemon), é um servidor FTP para sistemas Unix-like, com implementação de segurança, incluindo nas distribuições Linux. Ele está licenciado sob a Licença Pública Geral GNU.
+				Esse servidor Suporta IPv6 e SSL, além do ipv4.
+				<br />
+				O vsftpd suporta FTPS explícito (desde 2.0.0) e implícito (desde 2.1.0).
+	      <br />
+				O vsftpd é o servidor FTP padrão nas distribuições Ubuntu, CentOS, Fedora, NimbleX, Slackware e RHEL Linux.
+			</section>
+			<section>
+				<section>
+					<h3>Porque usar o vsftpd?</h3>
+					<p>Os dados do FTP são inseguros; o tráfego não é criptografado e todas as transmissões são texto não criptografado (incluindo nomes de usuário, senhas, comandos e dados). Por isso sempre devemos considerar proteger sua conexão FTP com SSL / TLS e usar servidores seguros. E o vsftpd nos ajuda nisso.
+				</section>
+				<section>
+					<h3>Install vsftpd (CentOS 7):</h3>
+						<p>Por uma questão de prática recomendada, atualizaremos nossos pacotes:</p>
+						<p>$ sudo yum -y update</p>
+				</section>
+				<section>
+					<h3>Install vsftpd (CentOS 7):</h3>
+						<p>Após isso, vamos instalar o vsftpd e todos os pacotes necessários:</p>
+						<p>$ sudo yum -y install vsftpd</p>
+				</section>
+				<section>
+					<h3>Configuração do vsftpd:</h3>
+					<p>Vamos editar o arquivo de configuração para o vsftpd: vim /etc/vsftpd/vsftpd.conf ou sudo nano /etc/vsftpd.conf. </p>
+				</section>
+			</section>
+			<section>
+					<section>
+						<h3>Login Anônimo (anonymous)</h3>
+						<p>Em primeiro lugar precisamos desabilitar para não temos acesso com login anônimo e permitir que usuários locais gravem, somente nas suas pastas. A primeira mudança que faremos no arquivo de configuração é:</p>
+					</section>
+					<section>
+						<h3>Login Anônimo (anonymous)</h3>
+						<p>anonymous_enable=NO # Retirar o YES;<br /><br />Isso impedirá o login anônimo de usuários não identificados. O que pode evitar muitos problemas de segurança.</p>
+					</section>
+					<section>
+						<h5>Agora precisamoms permitir que usuários locais efetuem login alterando a configuração local_enable para YES:</h5>
+						<p>local_enable=YES</p>
+					</section>
+					<section>
+						<h5>Se você deseja que o usuário local possa gravar em um diretório, altere a configuração write_enable para YES:</h5>
+						<p>write_enable=YES</p>
+					</section>
+					<section>
+						<h5>Agora precisamos colocar nossos usuarios enjaulados ou seja, usar somente seus diretorios. Usuários locais serão "chroot jailed" e terão acesso negado a qualquer outra parte do servidor; altere a configuração chroot_local_user para YES:</h5>
+						<p>chroot_local_user=YES</p>
+					</section>
+			</section>
+			<section>
+					<section>
+						<h3>Sobre usuários Chroot:</h3>
+						<p>Agora existem várias opções disponíveis para usuários de chrooting. Pesquise "chroot_local_users" e selecione um deles de acordo com suas necessidades:</p>
+						<p>chroot_local_user=YES</p>
+						<p>chroot_list_enable=NO</p>
+					</section>
+			</section>
+			<section>
+				<h3>Configuração:</h3>
+				<p>A configuração abaixo, irá permitir que você faça o chroot de alguns usuários em particular. Para isso precisamos criar o arquivo /etc/vsftpd.chroot_list com uma lista de nomes de usuário que você deseja está como chroot. </p>
+				<p>chroot_local_user=NO</p>
+				<p>chroot_list_enable=YES</p>
+			</section>
+			<section>
+				<h3>Configuração:</h3>
+				<p>A configuração acima, todos os usuários estarão livres de chroot, exceto alguns. Crie um arquivo /etc/vsftpd.chroot_list com uma lista de nomes de usuário que você quer sob chroot.</p>
+				<p>chroot_local_user=YES</p>
+				<p>chroot_list_enable=YES</p>
+			</section>
+			<section>
+				<h3>Configuração:</h3>
+				<p>A alteração acima permitirá que os usuários locais façam login e permitam que os usuários gravem no diretório. </p>
+				<p>local_enable=YES</p>
+				<p>write_enable=YES</p>
+			</section>
+			<section>
+				<section>
+					<h3>Serviço (daemon)</h3>
+					<p>systemctl restart vsftpd</p>
+				</section>
+				<section>
+					<h3>Em seguida, defina o serviço vsftpd para iniciar na inicialização:</h3>
+					<p>systemctl enable vsftpd</p>
+				</section>
+			</section>
+			<section>
+					<section>
+						<h3>Permitir a porta FTP padrão, porta 21, por meio do firewalld:</h3>
+					   <p>firewall-cmd --permanent --add-port=21/tcp</p>
+					</section>
+					<section>
+						<h3>Reinicie o firewalld:</h3>
+						<p>firewall-cmd --reload</p>
+					</section>
+			</section>
+			<section>
+					<h5>Obrigado</h5>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Redes de Computadores - Linux</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Redes de Computadores</h3>
+				<h5>TcpDump</h5>
+				<br />
+				<h5>Aulas do curso de Redes de Computadores</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<h3>O que é o TCP/IP?</h3>
+				<p>O TCP/IP é uma sequência de protocolos (Transmission Control Protocol/Internet Protocol - Protocolo de controle de transmissão/Protocolo da Internet). Essa denominação vem dos nomes de dois protocolos essenciais da sequência de protocolos, o TCP e o IP.</p>
+			</section>
+			<section>
+				<section>
+					<h3>O que ele representa?</h3>
+					<p>O TCP/IP representa, assim, o conjunto de regras de comunicação em uma Rede de Computadores e baseia-se na noção de endereçamento IP, isto é, no fato de fornecer um endereço IP para cada computador da rede para encaminhar pacotes de dados.
+				</section>
+				<section>
+					<h3>Objetivo:</h3>
+					<p>A sequência de protocolos TCP/IP foi criada com um objetivo militar para responder a diversos critérios, entre os quais: o fracionamento das mensagens em pacotes, a utilização de um sistema de endereços, o encaminhamento dos dados na rede (roteamento) e o controle dos erros da transmissão de dados. </p>
+				</section>
+				<section>
+					<h3>Por que obter esse conhecimento?</h3>
+					<p>O conhecimento do conjunto de protocolos TCP/IP não é essencial para um simples usuário nem para um telespectador que não precisa conhecer o funcionamento da televisão, nem as redes audiovisuais. Porém, seu conhecimento é fundamental para as pessoas que desejam administrar ou manter uma rede TCP/IP. </p>
+				</section>
+			</section>
+			<section>
+				<h3>Qual é a diferença entre padrão e a</h3>
+				<p>O TCP/IP reúne duas noções a padrão, que é o protocolo TCP/IP e que representa a forma como as comunicações são realizadas na rede e a aplicativo, denominação TCP/IP frequentemente aplicada para os softwares baseados no protocolo TCP/IP. O TCP/IP é, na realidade, um modelo no qual os desenvolvedores de a de rede se baseiam. Assim, estes são implementações do protocolo TCP/IP. </p>
+			</section>
+			<section>
+				<h3>Como funciona o modelo TCP/IP em camadas</h3>
+				<p>Para poder aplicar o modelo TCP/IP em qualquer máquina, ou seja, independentemente do sistema operacional, o sistema de protocolos TCP/IP foi decomposto em vários módulos que efetuam cada tarefa específica. Além disso, estes módulos executam estas tarefas umas após as outras em uma ordem determinada, resultando em um sistema estratificado. Esta , é a razão de o chamarmos de modelo em camadas.  </p>
+			</section>
+			<section>
+				<h3>O que é camada</h3>
+				<p>O termo camada é utilizado para evocar o fato que os dados que transitam na rede atravessam vários níveis de protocolos. Assim, os dados (pacotes de informações) que circulam na rede são tratados por cada camada, sucessivamente, acrescentando um elemento de informação (chamado 'cabeçalho') e, em seguida, transmitindo à camada seguinte.  </p>
+			</section>
+			<section>
+				<h3>TCP x OSI</h3>
+				<p>O modelo TCP/IP é muito próximo do modelo OSI (modelo com 7 camadas) que foi criado pela Organização Internacional de Normalização (ISO) a fim de padronizar as comunicações entre computadores.   </p>
+			</section>
+			<section>
+				<h3>A Função da OSI</h3>
+				<p>A função do modelo OSI consiste em padronizar a comunicação entre os computadores para que os diferentes construtores possam criar produtos (softwares ou hardwares) compatíveis. </p>
+			</section>
+			<section>
+				<h3>O que é e como se apresenta o modelo OSI</h3>
+				<p>OSI significa Open Systems Interconnection (Interconexão de Sistemas Abertos). Este modelo foi implementado pela ISO para aplicar um padrão de comunicações entre os computadores de uma rede, ou seja, aplicar as regras que geram as mesmas. Na verdade, originalmente, cada construtor tinha um sistema próprio (chamado de sistema proprietário). Assim, muitas redes incompatíveis entre elas coexistiam. Por isso, foi preciso estabelecer um padrão para sanar esse problema.  </p>
+			</section>
+			<section>
+				<h3>Objetivo da OSI:</h3>
+				<p>A função do modelo OSI consiste em padronizar a comunicação entre os computadores para que os diferentes construtores possam criar produtos (softwares ou hardwares) compatíveis. </p>
+			</section>
+			<section>
+				<h3>Qual a vantagem de um sistema em camadas</h3>
+				<p>O objetivo de um sistema em camadas é separar o problema em partes diferentes de acordo com o seu nível de abstração. Cada camada do modelo se comunica com uma camada adjacente (a de cima ou a de baixo). Cada camada utiliza, assim, os serviços das camadas inferiores e fornece os seus serviços às do nível superior. </p>
+			</section>
+			<section>
+				<h3>As camadas da OSI:</h3>
+				<p>O modelo OSI é um modelo com 7 camadas, enquanto que o modelo TCP/IP só tem 4. Na realidade, o modelo TCP/IP foi desenvolvido mais ou menos ao mesmo tempo que o modelo OSI, esta é a razão pela qual este se inspira naquele, mas não é totalmente conforme às especificações do modelo OSI. As camadas do modelo OSI são as seguintes: . </p>
+			</section>
+			<section>
+				<h3>O que é cada de camada:</h3>
+				<p>
+				<table>
+					  <tr>
+					    <th>Nível</th>
+					    <th>Antigo modelo</th>
+					     <th>Novo modelo</th>
+					  </tr>
+					  <tr>
+					    <td>Nível 7</td>
+					    <td>Camada de Aplicação</td>
+					    <td>Nível de Aplicativo</td>
+					  </tr>
+					   <tr>
+					    <td>Nível 6</td>
+					    <td>Camada de Apresentação</td>
+					    <td>Nível de Apresentação</td>
+					  </tr>
+					  <tr>
+					    <td>Nível 5</td>
+					    <td>Camada de Sessão</td>
+					    <td>Nível de Sessão</td>
+					  </tr>
+					   <tr>
+					    <td>Nível 4</td>
+					    <td>Camada de Transporte</td>
+					    <td>Nível de Mensagem</td>
+					  </tr>
+					  <tr>
+					    <td>Nível 3</td>
+					    <td>Camada de Rede</td>
+					    <td>Nível de Rede</td>
+					  </tr>
+					  <tr>
+					    <td>Nível 2</td>
+					    <td>Camada de Ligação de Dados</td>
+					    <td>Nível de Trama</td>
+					  </tr>
+					  <tr>
+					    <td>Nível 1</td>
+					    <td>Camada Física</td>
+					    <td>Nível fisico</td>
+					</table>
+				 </p>
+			</section>
+			<section>
+				<h3>Descrições das camadas na OSI:</h3>
+				<p>A camada física define a forma como os dados são convertidos fisicamente em sinais digitais nos meios de comunicação (impulsos elétricos, modulação da luz, etc.); a camada de conexão dos dados define a interface com a placa de rede e a compartilha com os meios de transmissão; a camada de rede permite gerenciar o endereçamento e o encaminhamento dos dados, isto é, o seu encaminhamento através da rede; a camada de transporte se encarrega do transporte dos dados, a sua separação em pacotes e a gestão de eventuais erros de transmissão; a camada de sessão define a abertura e o fim das sessões de comunicação entre as máquinas da rede; a camada de apresentação define o formato dos dados manipulados pelo nível de aplicação (a sua representação, eventualmente a sua compressão e a sua codificação) independentemente do sistema; a camada de aplicação garante a interface com os a. Trata-se do nível mais próximo dos usuários, gerenciado diretamente pelos softwares. </p>
+			</section>
+			<section>
+				<section>
+					<h3>Voltando ao TCP/IP</h3>
+					<img width="800" height="500" data-src="img/estrutura-diretorios.png" alt="Down arrow">
+				</section>
+				<section>
+					<h3>Camadas do protocolo TCP/IP</h3>
+					<p> O modelo TCP/IP, inspirado no modelo OSI, retoma a abordagem modular (utilização de módulos ou de camadas) mas só contém quatro módulos: </p>
+					Modelo TCP/IP	Modelo OSI
+					Camada de Aplicação	            Camada de Aplicação
+										            Camada de Apresentação
+										            Camada de Sessão
+					Camada de Transporte (TCP)	    Camada de Transporte
+					Camada de Internet (IP)	            Camada de Rede
+					Camada de Acesso à Rede	    Camada de Ligação de Dados
+					Camada Física
+				</section>
+				<section>
+					<h3>Camadas do protocolo TCP/IP</h3>
+					<p>Como podemos observar, as camadas do modelo TCP/IP têm tarefas muito mais diversas que as camadas do modelo OSI, já que certas camadas do modelo TCP/IP correspondem a várias camadas do modelo OSI. </p>
+				</section>
+				<section>
+					<h3>Camadas do protocolo TCP/IP</h3>
+					<p>A camada de Acesso à rede especifica a forma que os dados devem ser encaminhados independentemente do tipo de rede utilizado, a camada da Internet é encarregada fornecer o pacote de dados (datagrama), a camada do Transporte garante o encaminhamento dos dados, assim como os mecanismos que permitem conhecer o estado da transmissão e a camada de aplicação agrupa os a padrão da rede (Telnet, SMTP, FTP,etc.). </p>
+				</section>
+				<section>
+					<h3>Veja abaixo os principais protocolos da suíte TCP/IP: </h3>
+					<table>
+					  <tr>
+					    <td>Camada de Aplicação</td>
+					    <td>FTP, SMTP, HTTP, etc</td>
+					  </tr>
+					  <tr>
+					    <td>Camada de Transporte</td>
+					    <td>TCP ou UDP</td>
+					  </tr>
+					  <tr>
+					    <td>Camada de Internet</td>
+					    <td>IP, ARP, RARP</td>
+					  </tr>
+					  <tr>
+					    <td>Camada de Acesso à rede </td>
+					    <td>FDDI, PPP, Ethernet, Anéis de ficha à jeton (Token ring)]</td>
+					  </tr>
+					   <tr>
+					    <td>Camada física</td>
+					    <td>cabos e switches</td>
+					  </tr>
+					 </table>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>O que significa encapsulamento de dados</h3>
+					<p> Em uma transmissão, os dados atravessam cada uma das camadas da máquina emissora. E, em cada camada, uma informação é acrescentada ao pacote de dados, trata-se de um cabeçalho, o conjunto de informações que garante a transmissão. Na máquina receptora, durante a passagem em cada camada, o cabeçalho é lido e excluído. Assim, no momento da recepção, a mensagem fica no seu estado original: </p>
+				</section>
+				<section>O que significa encapsulamento de dados</h3>
+					<p> <img width="800" height="500" data-src="img/internet-images-encaps.gif" alt="Down arrow"></p>
+				</section>
+				<section>
+					<h3> O que significa encapsulamento de dados</h3>
+					<p> O pacote de dados muda de aspecto no processo da transmissão, porque ele recebe um cabeçalho e as denominações se alteram de acordo com as camadas: o pacote de dados é chamado de mensagem na camada de Aplicação. Depois disso, a mensagem é encapsulada como segmento na camada de Transporte. Em seguida, depois do segmento ser encapsulado na camada de Internet, ele leva o nome de datagrama. Por último, falamos de trama na camada de Acesso à Rede. </p>
+				</section>
+				<section>
+					<h3> Como é o processo na camada de Acesso à Rede</h3>
+					<p> A camada de Acesso à Rede é a primeira camada da pilha TCP/IP e possibilita o acesso a uma rede física, ou seja, ela oferece os meios de implementação para transmitir dados através de uma rede. Assim, a camada de Acesso à Rede contém todas as especificações relativas à transmissão de dados em uma rede física, seja ela uma rede local (Anel de ficha - token ring, ethernet, FDDI), uma conexão com uma linha telefônica ou qualquer outro tipo de conexão a uma rede.
+					</p>
+				</section>
+				<section>
+					<h3> Como é o processo na camada de Acesso à Rede</h3>
+					<p> Esta camada garante as seguintes noções: encaminhamento dos dados na conexão, coordenação da transmissão de dados (sincronização), formato dos dados, conversão dos sinais (analógico/numérico), controle dos erros na chegada, etc. Felizmente, todas as especificações são invisíveis ao usuário, porque o conjunto destas tarefas é realizado pelo sistema operacional, assim como os drivers do hardware que permitem a conexão à rede (ex: driver de placa de rede).
+					Como é a camada de Internet</p>
+				</section>
+				<section>
+					<h3> A camada de Internet</h3>
+					<p> A camada de Internet é considerada a mais importante, pois é ela que define os datagramas e que gerencia as noções de endereçamento IP. Ela permite o encaminhamento dos datagramas (pacotes de dados) para os computadores remotos, bem como a gestão da sua fragmentação e de sua montagem na recepção. A camada de Internet contém cinco protocolos: IP, ARP, ICMP, RARP e IGMP. Os três primeiros protocolos são os mais importantes desta camada. </p>
+				</section>
+				<section>
+					<h3> Como é a camada de Transporte</h3>
+					<p> Os protocolos das camadas precedentes permitem enviar informações de uma máquina para outra. A camada de Transporte permite aos a que rodam em máquinas remotas se comunicarem entre si. O problema consiste em identificar estes a. De acordo com o computador e o seu sistema operacional, o aplicativo poderá ser um programa, uma tarefa ou um processo. Além disso, a denominação do aplicativo pode variar de um sistema para outro, razão pela qual um sistema de números foi implementado para poder associar um tipo de aplicativo a um tipo de dado. Estes identificadores recebem o nome de portas. </p>
+				</section>
+				<section>
+					<h3> Camada de Transporte</h3>
+					<p> A camada de Transporte contém dois protocolos que permitem que dois a troquem dados, independentemente do tipo de rede (ou seja, independentemente das camadas inferiores). Estes protocolos são o TCP, protocolo orientado para a conexão que garante o controle dos erros, e o UDP, protocolo não orientado para a conexão cujo controle de erros é arcaico. </p>
+				</section>
+				<section>
+					<h3> Como é a camada de Aplicação</h3>
+					<p> A camada de aplicação é a camada situada no topo dos protocolos TCP/IP. Ela contém os a de rede que se comunicam graças às camadas inferiores, especialmente os protocolos da camada de Transporte (TCP ou UDP). Os a desta camada são de diversos tipos, mas na maior parte do tempo são serviços de rede, ou seja, a fornecidos ao usuário para garantir a interface com o sistema operacional. Podemos classificá-los de acordo com os serviços que oferecem: serviços de gestão (transferência) de arquivos e impressão, serviços de conexão à rede, serviços de conexão remota e os diversos utilitários da Internet.</p>
+				</section>
+			<section>
+					<h5>Obrigado</h5>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>
