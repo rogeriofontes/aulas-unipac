@@ -27,200 +27,168 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h3>Dispositivos Móveis</h3>
-				<h5>Aulas do curso de Dispositivos Móveis</h5>
+				<h5>Dispositivos Móveis</h5>
+				<h5>Persistencia de dados no Android</h5>
 				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
 				<p>
 					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
 				</p>
 			</section>
 			<section>
-				<h3>Android</h3>
+				<h5>Android</h5>
 				<p><img data-src="img/android1.png"></p>
 			</section>
 			<section>
-				<h3>O que é o Android</h3>
-				<p>Android é o nome do sistema operacional baseado em Linux que opera em celulares (smartphones), netbooks e tablets. É desenvolvido pela Open Handset Alliance, uma aliança entre várias empresas, dentre elas a Google.</p>
+				<h5>Persistencia de dados no Android</h5>
+				<p>Existe ambientes que precisamos de simplicidade e customização para persistência de dados, como isso utilizamos bancos embarcados ("emutido"). Esse bancos são indicados para aplicações de pequeno porte, que utiliza pouco dados e poucas transações. Mas nos ajuda com várias necessidades como as que temos em sistemas Mobiles.</p>
 			</section>
 			<section>
-				<h3>Gerenciadores de Layout no Android</h3>
+				<h5>SQLite</h5>
 				<p><img data-src="img/android-root.png"></p>
 			</section>
 			<section>
-				<h3>O que são regenciadores de Layout?</h3>
+				<h5>O que é SQLite?</h5>
 				<p>
-					<small>Os gerenciadores de layout no Android são utilizados para organizar a disposição dos componentes na tela, de acordo com o gerenciador de layout escolhido utilizaremos atributos diferentes para posicionar os componentes. A classe-mãe de todos os gerenciadores de layout é a ‘android.view.ViewGroup’, nesse artigo iremos verificar as suas subclasses e o comportamento de cada uma.</small>
+					<small>Um deles é o SQLite, que é uma biblioteca de código aberto (open source) desenvolvido na linguagem C e que permite a disponibilização de um pequeno banco de dados na própria aplicação, sem a necessidade de acesso a um gernciador SGDB separado. </small>
+				</p>
+			</section>
+			<section>
+				<h5>Vantagem</h5>
+				<p>
+					<small>A grande vantagem dos bancos de dados embutidos está em sua simplicidade: é mais prático implementar e administrar do que a implementação de SGDB´s separados, utilizando soluções como SQL Server e Oracle. Por outro lado, a performance e limitação de recursos são desvantagens do SQLite e soluções semelhantes. Mas para aplicativos mobiles é ideal por que temos que oconomizar recursos dos dispositivos móveis. </small>
+				</p>
+			</section>
+			<section>
+				<h5>Limitações</h5>
+				<p>
+					<small>O SQLite é um banco de dados de código aberto com recursos de um banco de dados relacional, com sintaxe SQL e transações. Como ele requer memória limitada para ser executado (aproximadamente 250 KByte), por isso a escolha dele para dentro da plataforma Android. </small>
+				</p>
+			</section>
+			<section>
+				<h5>Limitações</h5>
+				<p>
+					<small>Os tipos de dados também são limitados, e se precisar de um tipo que não contenha na lista abaixo é necessário converter para um desses tipos: </small>
+					<small>
+            <ul>
+							<li>NULL - como em qualquer outro banco de dados.</li>
+							<li>INTEGER - inteiro com sinal, armazenado em 1, 2, 3, 4, 6 ou 8 bytes dependendo da grandeza do valor.</li>
+							<li>REAL - valor de ponto flutuante armazenado em 8 bytes.</li>
+							<li>TEXT - uma string armazenada usando UTF-8, UTF-16BE ou UTF-16LE.</li>
+							<li>BLOB - armazena um blob, como indica o nome.</li>
+						</ul>
+					</small>
+					<small>Mais em: http://professorcarlos.blogspot.com/2010/05/tipos-de-dado-no-sqlite.html</small>
+				</p>
+			</section>
+			<section>
+				<h5>Quando o uso do SQLite é recomendado:</h5>
+				<p>
+					<small>
+						<ul>
+							<li>Aplicativos básicos desktop / mobile</li>
+							<li>Pequenos Web Sites</li>
+							<li>Sistemas utilizados por poucas pessoas</li>
+						</ul>
+					</small>
+				</p>
+			</section>
+			<section>
+				<h5>Quando o uso do SQLite não é recomendado:</h5>
+				<p>
+					<small>
+						<ul>
+							<li>Sistemas Web / aplicações cliente servidor</li>
+							<li>Sites que recebem muitas visitas</li>
+						</ul>
+					</small>
 				</p>
 			</section>
 			<section>
 				<section>
-					<h2>FrameLayout</h2>
-					<p><small>É o mais simples de todos os gerenciadores de layout e é utilizado para empilhar uma view sobre a outra. É possível adicionar vários componentes dentro do FrameLayout. Os últimos componentes ficarão sobre os anteriores, seguindo o conceito de pilha, em que o ultimo elemento fica no topo. Um exemplo de utilização é quando queremos inserir uma ProgressBar acima de outro componente para indicar que estamos carregando alguma coisa. O exemplo a seguir demonstra um FrameLayout utilizando uma ProgressBar sobre um elemento de texto.</small></p>
-				</section>
-				<section>
-					<pre>
-							<code class="hljs" data-trim contenteditable>
-								<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-							    android:layout_height="match_parent"
-							    android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin"
-							    android:paddingTop="@dimen/activity_vertical_margin" android:paddingBottom="@dimen/activity_vertical_margin"
-							    tools:context=".MainActivity">
-
-									<TextView
-							        android:text="Insira o seu nome"
-							        android:layout_width="match_parent"
-							        android:layout_height="wrap_content" />
-								  <EditText
-							        android:layout_marginTop="10dp"
-							        android:layout_width="match_parent"
-							        android:layout_height="wrap_content" />
-								  <ProgressBar
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content"
-							        android:layout_gravity="top|center"/>
-
-							</FrameLayout>
-						 </code>
-					 </pre>
+					<h5>Origem do SQLite</h5>
+					<p><small>O SQL Lite foi desenvolvido por D. Richard Hipp.<br />Página oficial: http://www.sqlite.org/</small></p>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Linear Layout</h2>
-					<p><small>O LinearLayout é uma ViewGroup que alinha todos os seus componentes em um único sentido configurado através do atributo android:orientation. Quando utilizamos a orientação vertical teremos apenas um elemento por linha independente do tamanho do elemento e ao utilizarmos a orientação horizontal teremos apenas uma linha para todos os elementos.</small></p>
-				</section>
-				<section>
-					<pre>
-							<code class="hljs" data-trim contenteditable>
-								<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-								    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-								    android:layout_height="match_parent"
-								    android:paddingLeft="@dimen/activity_horizontal_margin"
-								    android:paddingRight="@dimen/activity_horizontal_margin"
-								    android:paddingTop="@dimen/activity_vertical_margin"
-								    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-								    android:orientation="vertical">
-
-								    <TextView
-								        android:layout_marginTop="10dp"
-								        android:text="Insira o seu nome"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								    <EditText
-								        android:layout_marginTop="10dp"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-
-								    <TextView
-								        android:layout_marginTop="10dp"
-								        android:text="Insira o seu endereço"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								    <EditText
-								        android:layout_marginTop="10dp"
-								        android:layout_width="match_parent"
-								        android:layout_height="wrap_content" />
-								</LinearLayout>
-						 </code>
-					 </pre>
+					<h5>Sqlite no android:</h5>
+					<p><small>O SQLite é incorporado em todos os dispositivos Android, por isso usar-lo no Android não requer nenhuma configuração. Todas já estão feitas por padrão</small></p>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Relative Layout</h2>
-					<p><small>RelativeLayout é uma ViewGroup que posiciona seus os componentes utilizando posições relativas. Essa posição pode ser especificada de acordo com a posição de outro componente (utilizando os atributos below, left, etc) ou de acordo com a posição do próprio RelativeLayout (utilizando os atributos bottom, left ou center). Para realizar o posicionamento relativo devemos identificar os componentes através do seu id. No código a seguir podemos verificar que os atributos layout_below, layout_toRightOf e layout_alignParentTop são utilizados para fazer esse posicionamento relativo.</small></p>
-				</section>
-				<section>
-					<pre>
-							<code class="hljs" data-trim contenteditable>
-								<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity"
-							    android:layout_width="match_parent" android:layout_height="match_parent"
-							    android:padding="15dp" android:orientation="horizontal">
-
-							    <TextView
-							        android:id="@+id/nomeTextView"
-							        android:layout_marginTop="10dp"
-							        android:layout_alignParentTop="true"
-							        android:text="Insira o seu nome"
-
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content" />
-
-							    <EditText
-							        android:id="@+id/nomeEditText"
-							        android:layout_toRightOf="@+id/nomeTextView"
-							        android:layout_width="fill_parent"
-							        android:layout_height="wrap_content" />
-
-							    <TextView
-							        android:id="@+id/enderecoTextView"
-							        android:layout_below="@id/nomeTextView"
-							        android:text="Insira o seu endereço"
-							        android:paddingTop="15dp"
-
-							        android:layout_width="wrap_content"
-							        android:layout_height="wrap_content" />
-
-							    <EditText
-							        android:id="@+id/enderecoEditText"
-							        android:layout_below="@id/nomeTextView"
-							        android:layout_toRightOf="@id/enderecoTextView"
-							        android:layout_width="fill_parent"
-							        android:layout_height="wrap_content" />
-
-							</RelativeLayout>
-						 </code>
-					 </pre>
+					<h5>Sqlite no android:</h5>
+					<p><small>Algo importante é que temos que rodar nossa estrutura de persistência do Android com SQLite, utilizando o  uma AsyncTask. (Mais).</small></p>
 				</section>
 			</section>
 			<section>
 				<section>
-					<h2>Grid View</h2>
-					<p><small>A classe android.widget.GridLayout organiza as views em linhas e colunas utilizando os atributos layout_row e layout_column. O GridLayout só esta disponível a partir do Android 4.0, mas podemos utilizar a biblioteca de compatibilidade android.support.v7.widget.GridLayout para adicionar o suporte a versões superiores ao Android 2.1.</small></p>
+					<h5>Sqlite no android:</h5>
+					<p><small>Ao criar um banco de dados no Android ele por padrão, será salvo no diretório<br />DATA/data/<<APP_NAME>>/databases/FILENAME</small></p>
+				</section>
+			</section>
+				<section>
+					<h5>Sqlite no android:</h5>
+					<p><small>As pastas do caminho acima são construídas com base nas seguintes regras:</small></p>
+					<p><small>
+							<ul>
+								<li>DATA é o caminho que o método Environment.getDataDirectory() retorna.</li>
+								<li>APP_NAME é o nome do seu aplicativo.</li>
+								<li>FILENAME é o nome que você especificou no código do seu aplicativo para o banco de dados.</li>
+							</ul>
+						</small>
+				  </p>
 				</section>
 				<section>
-					<pre>
-							<code class="hljs" data-trim contenteditable>
-								<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-							    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity"
-							    android:layout_width="match_parent" android:layout_height="match_parent"
-							    android:columnCount="2" android:rowCount="2"
-							    android:padding="15dp">
+					<section>
+						<h5>Api de Acesso no Sqlite no android:</h5>
+						<p><small>O android já nos fornece uma Api de Acesso padrão para SQLite, que já vem disponível no SDK. E fornece algumas classe para essas configurações</small></p>
+					</section>
+					<section>
+						<h5>Duas classes são utilizadas para a criação do banco de dados via aplicação:</h5>
+						<p><small>
+							<ul>
+									<li>SQLiteDatabase: Classe que contém os métodos de manipulação dos dados no banco;</li>
+									<li>SQLiteOpenHelper: Classe responsável pela criação do banco e também responsável pelo versionamento do mesmo.</li>
+							</ul>
+						</small></p>
+					</section>
+					<section>
+						<h5>Por padrão, quando utilizamos o SQLiteOpenHelper, temos que sobrescrever dois metodos:</h5>
+						<p><small>
+								<ul>
+									<li>Método onCreate(): é chamado quando a aplicação cria o banco de dados pela primeira vez. Nesse método devem ter todas as diretrizes de criação e população inicial do banco.</li>
+									<li>Método onUpgrade(): é o método responsável por atualizar o banco de dados com alguma informação estrutural que tenha sido alterada. Ele sempre é chamado quando uma atualização é necessária, para não ter nenhum tipo de inconsistência de dados entre o banco existente no aparelho e o novo que a aplicação irá utilizar.</li>
+								</ul>
+							</small>
+					  </p>
+					</section>
+					<section>
+						<p>Ambos recebem como parâmetro o objetodb, que é uma instância da classe SQLiteDatabase. E é esse instância que trabalharemos para inserir, consultar, alterar e deletar nossos dados.</p>
+					</section>
+					<section>
+						<p>
+							<pre>
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-							    <Button
-							        android:layout_width="200dp" android:layout_height="wrap_content"
-							        android:layout_column="0" android:layout_row="0"
-							        android:text="Botão 01"/>
+/**
+ * Created by allanromanato on 5/27/15.
+ */
+public class CriaBanco extends SQLiteOpenHelper {
+	@Override
+	public void onCreate(SQLiteDatabase db) {}
 
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="0" android:layout_row="1"
-							        android:text="Botão 02"/>
-
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="1" android:layout_row="0"
-							        android:text="Botão 03"/>
-
-							    <Button
-							        android:layout_width="wrap_content" android:layout_height="wrap_content"
-							        android:layout_column="1" android:layout_row="1"
-							        android:text="Botão 04"/>
-
-							</GridLayout>
-						 </code>
-					 </pre>
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
+}
+							</pre>
+						</p>
+					</section>
 				</section>
-			</section>
-			<section>
-				<h2>Visão geral da IU do Android</h2>
-				<p><a href="https://developer.android.com/guide/topics/ui/overview.html" target="_blank">Overview do Android!</a></p>
-			</section>
-			<section>
-				<img data-src="img/Respect_8-512.png" alt="Obrigado">
-			</section>
+				<section>
+					<img data-src="img/Respect_8-512.png" alt="Obrigado">
+				</section>
 		</div>
 	</div>
 
