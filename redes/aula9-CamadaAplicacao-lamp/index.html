@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Redes de Computadores - Linux</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>Redes de Computadores</h3>
+				<h5>Lamp</h5>
+				<br />
+				<h5>Aulas do curso de Redes de Computadores</h5>
+				<small>Analise e Desenvolvimento de Sistemas - Unipac Uberlandia.</small>
+				<p>
+					<small>Prof. <a href="https://about.me/rogeriofontes">Rogério Fontes</a> / <a href="http://twitter.com/rogeriofontes">@rogeriofontes</a><br /><br /><a href="mailto:rogerio.tomaz@unipacuberlandia.com.br"> | rogerio.tomaz@unipacuberlandia.com.br | </a><br /><a href="mailto:professorrogeriofontes@gmail.com">professorrogeriofontes@gmail.com</a></small>
+				</p>
+			</section>
+			<section>
+				<section>
+					<h3>O que é o Lamp?</h3>
+					<p>É um conjunto de sistemas, linguagens ou tecnologias muito utilizadas habitualmente, de maneira conjunta, no desenvolvimento de aplicações web.</p>
+				</section>
+				<section>
+					<h3>O que é o Lamp?</h3>
+					<p>LAMP é a abreviação de Linux, Apache (Servidor Web), MYSQL ou MariaDB (Banco de Dados) PHP (Linguagem de Programação). Basicamente é um conjunto de ferramentas de código aberto, que possibilitam o desenvolvimento de aplicações Web de forma mais simples.
+					</p>
+				</section>
+				<section>
+					<h3>Componentes do Lamp</h3>
+					<p>
+						<ul>
+							<li>Linux (sistema operacional)</li>
+							<li>Apache (servidor web)</li>
+							<li>MariaDB ou MySQL (software de banco de dados)</li>
+							<li>PHP (linguagens de programação) ou Python</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h5>Referência</h5>
+					<p>http://lamphowto.com/</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Instalando o Apache no CentOS 7</h5>
+					<p><pre># yum install httpd -y</pre></p>
+				</section>
+				<section>
+					<h5>Após a Instalação iniciar e ativar na inicialização:</h5>
+					<p><pre># systemctl start httpd.service</pre>
+						<br /><pre># systemctl enable httpd.service</pre></p>
+				</section>
+				<section>
+					<h5>Para verificar se ele foi iniciado corretamente, execute o comando ps aux | grep httpd:</h5>
+					<p><pre># ps aux | grep httpd</pre></p>
+					<h5>Resposta:</h5>
+					<p><pre>
+root     15817  0.5  0.2 221792  4908 ?        <br />Ss   04:33   0:00 /usr/sbin/httpd -DFOREGROUND <br />
+apache   15818  0.0  0.1 221792  2628 ?        <br />S    04:33   0:00 /usr/sbin/httpd -DFOREGROUND
+						</pre></p>
+				</section>
+				<section>
+					<h5>Verificar o ip:</h5>
+					<p><pre># ip addr show eth0 | grep inet | awk '{ print $2; }' | <br /> sed 's/\/.*$//'</pre></p>
+					<p><pre># curl http://icanhazip.com</pre></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Instalando o MySQL (MariaDB)</h5>
+					<p><pre># yum install mariadb-server mariadb -y</pre></p>
+				</section>
+				<section>
+					<h5>Quando a instalação for concluída, inicie o MariaDB e ative-a no boot::</h5>
+					<p><pre># systemctl start mariadb</pre>
+						<br /><pre># systemctl enable mariadb</pre></p>
+				</section>
+				<section>
+					<h5>Configuração! Depois de iniciar o MariaDB, execute o script de segurança inicial para remover alguns padrões arriscados:</h5>
+					<p><pre># mysql_secure_installation</pre></p>
+					<p><small>Mais em: <a href="https://mariadb.com/kb/en/library/mysql_secure_installation/" target="_blank">Maria DB Referência!</a></small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Instalando o PHP e o PHP MYSQL:</h5>
+					<p><pre># yum install php php-mysql -y</pre></p>
+				</section>
+				<section>
+					<h5>Quando a instalação for concluída, Reinicie o Apache:</h5>
+					<p><pre># systemctl restart httpd.service</pre></p>
+				</section>
+				<section>
+					<h5>Teste do motor PHP:</h5>
+					<p><pre># echo "< ?php phpinfo(); ?>" > /var/www/html/info.php</pre></p>
+					<p><small>Acesse: http://localhost</small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Permitir a porta HTTP ou HTTPS padrão, porta 80 ou 443, por meio do firewalld:</h5>
+					<p><pre># sudo firewall-cmd --permanent --zone=public --add-service=http</pre></p>
+					<p><pre># sudo firewall-cmd --permanent --zone=public --add-service=https</pre></p>
+				</section>
+				<section>
+					<h5>Reinicie o firewalld:</h5>
+					<p><pre>#firewall-cmd --reload</pre></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Navegadores em modo texto:</h5>
+					<p><small>No linux existem Navegadores em modo texto, onde podemos fazer bastante coisas e testarmos nossos servidores.</small></p>
+					<p><small>Lynx – http://lynx.browser.org/</small></p>
+					<p><small>Links – http://links.twibright.com/</small></p>
+				</section>
+				<section>
+					<h5>Instalando o Lynx</h5>
+					<p><pre># yum -y install lynx</pre></p>
+					<p><small>Usando o # lynx https://www.tecmint.com</small></p>
+				</section>
+				<section>
+					<h5>Instalando o Links</h5>
+					<p><pre># yum -y install links</pre></p>
+					<p><small>Usando o # links https://www.tecmint.com</small></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Permitir a porta HTTP ou HTTPS padrão, porta 80 ou 443, por meio do firewalld:</h5>
+					<p><pre># sudo firewall-cmd --permanent --zone=public --add-service=http</pre></p>
+					<p><pre># sudo firewall-cmd --permanent --zone=public --add-service=https</pre></p>
+				</section>
+				<section>
+					<h5>Reinicie o firewalld:</h5>
+					<p><pre>#firewall-cmd --reload</pre></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>Referências:</h5>
+					<p><small>https://www.hostinger.com.br/tutoriais/como-instalar-linux-apache-mysql-php-lamp/#gref</small></p>
+					<p><small>https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7</small></p>
+				</section>
+				<section>
+					<h5>Obrigado</h5>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+				src: 'plugin/markdown/marked.js'
+			}, {
+				src: 'plugin/markdown/markdown.js'
+			}, {
+				src: 'plugin/notes/notes.js',
+				async: true
+			}, {
+				src: 'plugin/highlight/highlight.js',
+				async: true,
+				callback: function() {
+					hljs.initHighlightingOnLoad();
+				}
+			}]
+		});
+	</script>
+</body>
+
+</html>
